@@ -6,15 +6,17 @@ import Archive from './screens/Archive'
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route exact path='/home' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/archive' element={<Archive />} />
-      </Routes>
-    </Router>
+    <div class="bg-zinc-800 w-screen h-screen">
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route exact path='/home' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/archive' element={<Archive />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
