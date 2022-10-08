@@ -4,9 +4,19 @@ import ContentGrid from '../components/ContentGrid'
 
 export default function Home() {
   return (
-    <div>
-      Home
-      <div class="p-10 flex justify-center space-x-10 columns-4">
+    <div class="p-5 flex flex-wrap justify-evenly">
+      <h1 class="text-6xl font-black">HOME</h1>
+      <div class="sm:p-1 md:p-2 lg:p-5 flex flex-wrap justify-center">
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
+        <ContentCard />
         <ContentCard />
         <ContentCard />
         <ContentCard />
