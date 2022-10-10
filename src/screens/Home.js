@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div class="flex flex-wrap justify-evenly">
       <Banner></Banner>
-      <div class="sm:p-1 md:p-2 lg:p-5 flex flex-wrap justify-center">
+      <div class="sm:p-1 md:p-2 lg:p-10 flex flex-wrap justify-center">
         <ContentCard />
         <ContentCard />
         <ContentCard />
