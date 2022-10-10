@@ -2,19 +2,21 @@ import React from 'react'
 import image from '../assets/images/default.png'
 export default function ContentCard() {
     return (
-        <div class="flex flex-row items-center h-100 border-[1px] border-white hover:border-4 hover:mx-10 m-1 lg:hover:w-1/3 sm:w-full md:w-1/4 lg:w-1/5 bg-black p-2 rounded-lg transition-all ease-in-out duration-1000">
-            <div class="flex flex-row">
-                <div class="overflow-hidden aspect-square rounded-lg w-full">
+        <div class="hover:z-10 hover:border-white hover:drop-shadow-[0px_50px_50px_rgba(1,1,1,10)] flex flex-row items-center border-[1px] border-zinc-900 hover:mx-4 m-1 lg:hover:w-1/3 sm:w-full md:w-1/2 lg:w-1/5 bg-black p-2 rounded-lg transition-all ease-in-out duration-1000">
+            <div class="flex flex-row h-full">
+                <div class="overflow-hidden rounded-lg w-full">
                     <img src={image} class="object-cover h-full w-full" />
                 </div>
-                <span class="justify-center items-center p-2">
-                    <h1 class="text-2xl font-bold">Excepteur sint occaecat cupidatat non proident</h1>
-                    <p class="font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <div class="flex space-x-1 justify-end items-center transition-all ease-in-out duration-1000">
-                        <p class="flex uppercase text-xs border-white border-[1px] py-1 px-2 m-3">Author</p>
-                        <p class="uppercase text-xs border-white border-[1px] py-1 px-2 m-3">Category</p>
+                <div class="text-xs font-blight flex flex-wrap justify-cleft items-center px-2 h-full">
+                    <p class="py-2  text-zinc-400">02/23/2020</p>
+                    <h1 class="grow text-2xl font-bold">Excepteur sint occaecat cupidatat non proident</h1>
+                    <p class="py-2  text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="flex flex-wrap space-x-1 justify-evenly transition-all ease-in-out duration-1000">
+                        <p class="font-light rounded-lg uppercase text-xs border-zinc-700 border-[1px] py-1 px-2 my-2">Author</p>
+                        <p class="font-light rounded-lg uppercase text-xs border-zinc-700 border-[1px] py-1 px-2 my-2">Category</p>
+                        <p class="font-light rounded-lg uppercase text-xs border-zinc-700 border-[1px] py-1 px-2 my-2">Issue 1</p>
                     </div>
-                </span>
+                </div>
             </div>
         </div >
     )

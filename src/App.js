@@ -6,7 +6,7 @@ import Archive from './screens/Archive'
 
 function App() {
   return (
-    <div class="bg-black w-full h-full font-willump text-white">
+    <div class="bg-main w-full h-full font-willump text-white">
       <Router>
         <NavBar />
         <Routes>
