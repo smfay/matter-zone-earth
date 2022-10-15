@@ -24,7 +24,7 @@ const MenuIcon = (props) => (
                 r={10}
                 style={{
                     fill: "none",
-                    stroke: "rgb(24 24 27)",
+                    stroke: "black",
                     strokeWidth: "1.5px",
                 }}
             />
@@ -36,7 +36,7 @@ const MenuIcon = (props) => (
                 r={10}
                 style={{
                     fill: "none",
-                    stroke: "rgb(24 24 27)",
+                    stroke: "black",
                     strokeWidth: "1.5px",
                 }}
             />
@@ -48,7 +48,7 @@ const MenuIcon = (props) => (
                 r={10}
                 style={{
                     fill: "none",
-                    stroke: "rgb(24 24 27)",
+                    stroke: "black",
                     strokeWidth: "1.5px",
                 }}
             />
@@ -60,7 +60,7 @@ const MenuIcon = (props) => (
                 r={10}
                 style={{
                     fill: "none",
-                    stroke: "rgb(24 24 27)",
+                    stroke: "black",
                     strokeWidth: "1.5px",
                 }}
             />
