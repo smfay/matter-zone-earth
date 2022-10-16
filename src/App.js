@@ -7,7 +7,7 @@ import Post from './screens/Post'
 
 function App() {
   return (
-    <div class="bg-earth-200 w-full h-full font-inter text-black -z-50">
+    <div class="bg-zinc-700 w-full h-full font-inter text-black -z-50 ">
       <Router>
         <NavBar />
         <Routes>

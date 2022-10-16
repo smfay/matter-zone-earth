@@ -22,7 +22,7 @@ const Feed = () => {
   if (loading) return <Spinner />
 
   return (
-    <div class="flex flex-wrap grow-1">
+    <div class="flex flex-wrap border-black border-[0.15em] rounded bg-zinc-600 z-10 shadow-inset">
       {posts?.map((post) => <Card key={post.slug.current} post={post} />)}
     </div>
   )
