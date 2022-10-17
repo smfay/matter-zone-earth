@@ -13,7 +13,7 @@ const MenuIcon = (props) => (
             clipRule: "evenodd",
             strokeLinecap: "round",
             strokeLinejoin: "round",
-            strokeMiterlimit: 0.1,
+            strokeMiterlimit: 0.15,
         }}
         {...props}
     >
@@ -25,7 +25,7 @@ const MenuIcon = (props) => (
                 style={{
                     fill: "none",
                     stroke: "currentcolor",
-                    strokeWidth: "0.1em",
+                    strokeWidth: "0.15em",
                 }}
             />
         </g>
@@ -37,7 +37,7 @@ const MenuIcon = (props) => (
                 style={{
                     fill: "none",
                     stroke: "currentcolor",
-                    strokeWidth: "0.1em",
+                    strokeWidth: "0.15em",
                 }}
             />
         </g>
@@ -49,7 +49,7 @@ const MenuIcon = (props) => (
                 style={{
                     fill: "none",
                     stroke: "currentcolor",
-                    strokeWidth: "0.1em",
+                    strokeWidth: "0.15em",
                 }}
             />
         </g>
@@ -61,7 +61,7 @@ const MenuIcon = (props) => (
                 style={{
                     fill: "none",
                     stroke: "currentcolor",
-                    strokeWidth: "0.1em",
+                    strokeWidth: "0.15em",
                 }}
             />
         </g>

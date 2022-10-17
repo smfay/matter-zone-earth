@@ -7,17 +7,17 @@ import SearchBar from '../components/content/SearchBar'
 export default function Home() {
   return (
     <>
-      <header class="lg:px-32 h-96 bg-main drop-shadow-lift-hard text-transparent bg-fixed bg-clip-text flex flex-wrap justify-right border-black items-end p-8">
-        <h2 class="font-black lg:text-8xl text-5xl">ZONE.<br />EARTH</h2>
-        <h2 class="font-black lg:text-8xl text-5xl">MAT<br />TER</h2>
-        <h2 class="font-black lg:text-8xl text-5xl">ZONE.<br />EARTH</h2>
+      <header class="lg:px-32 h-64 backdrop-contrast-[2] flex drop-shadow-lift-hard flex-wrap text-right text-zinc-200 justify-end border-black items-end p-8">
+        <h2 class="font-black lg:text-8xl text-7xl">new!</h2>
       </header>
-      <Logo class="fixed text-zinc-700 w-full" />
-      <span class="px-20 p-10 flex flex-wrap space-x-2 justify-end items-end ">
+      <span class="px-20 p-3 flex flex-wrap space-x-2 justify-end w-full items-center bg-zinc-500 border-black border-t-[0.15em] border-b-[0.15em]">
+        <button class="uppercase bg-zinc-200 border-black border-[0.15em] rounded px-3">boioioing</button>
+        <button class="uppercase bg-zinc-200 border-black border-[0.15em] rounded px-3">Sort</button>
+        <button class="uppercase bg-zinc-200 border-black border-[0.15em] rounded px-3">Category</button>
         <SearchBar class="w-full" />
       </span>
-      <main class="flex flex-wrap p-5">
-        <section class="p-2 flex justify-center">
+      <main class="flex flex-wrap p-0 lg:p-5">
+        <section class="p-2 flex justify-center w-full">
           <Feed />
         </section>
         <section class="p-2 flex flex-wrap justify-left content-start h-64 w-1/2 p-5">

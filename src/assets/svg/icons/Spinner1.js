@@ -23,7 +23,7 @@ const Spinner1 = (props) => (
       style={{
         fill: "none",
         stroke: "currentcolor",
-        strokeWidth: 3,
+        strokeWidth: "0.15em",
       }}
     />
     <path
@@ -31,7 +31,7 @@ const Spinner1 = (props) => (
       style={{
         fill: "none",
         stroke: "currentcolor",
-        strokeWidth: 3,
+        strokeWidth: "0.15em",
       }}
     />
     <path
@@ -39,7 +39,7 @@ const Spinner1 = (props) => (
       style={{
         fill: "none",
         stroke: "currentcolor",
-        strokeWidth: 3,
+        strokeWidth: "0.15em",
       }}
     />
     <path
@@ -47,7 +47,7 @@ const Spinner1 = (props) => (
       style={{
         fill: "none",
         stroke: "currentcolor",
-        strokeWidth: 3,
+        strokeWidth: "0.15em",
       }}
     />
   </svg>

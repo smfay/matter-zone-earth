@@ -14,15 +14,20 @@ const Feed = () => {
       .then((data) => {
         setCards(data);
         setloading(false);
+        console.log(data)
       })
       .catch(console.error)
   }, [])
 
 
-  if (loading) return <Spinner />
+  if (loading) return (
+    <div class="w-full h-96 border-black flex justify-center items-center border-[0.15em] rounded-lg bg-zinc-400 z-10">
+      <Spinner />
+    </div>
+  )
 
   return (
-    <div class="flex flex-wrap border-black border-[0.15em] rounded bg-zinc-600 z-10 shadow-inset">
+    <div class="flex flex-wrap border-black border-[0.15em] rounded-lg bg-zinc-600 z-10 shadow-inset">
       {posts?.map((post) => <Card key={post.slug.current} post={post} />)}
     </div>
   )

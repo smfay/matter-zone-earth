@@ -14,6 +14,7 @@ export const feedQuery = (`*[_type == "post"] {
             url
         },
         alt
-    }
+    },
+    categories[]-> {title}
 }`
 )
