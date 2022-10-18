@@ -4,10 +4,10 @@ import Spinner2 from '../../assets/svg/icons/Spinner2'
 
 export default function Spinner() {
     return (
-        <div class="animate-pulse flex items-center w-32 h-32 aspect-square">
-            <Spinner1 class="absolute h-6 animate-twirl-slower" />
-            <Spinner1 class="absolute h-8 animate-twirl-slow" />
-            <Spinner1 class="absolute h-12 animate-twirl" />
+        <div class="flex items-center justify-center w-full h-full aspect-square">
+            <div class="flex items-center w-32 h-32 aspect-square">
+                <Spinner2 class="h-16 animate-twirl" />
+            </div>
         </div>
     )
 }

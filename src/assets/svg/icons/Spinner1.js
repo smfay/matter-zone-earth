@@ -22,32 +22,32 @@ const Spinner1 = (props) => (
       d="M10,40L10,10L40,10"
       style={{
         fill: "none",
-        stroke: "white",
-        strokeWidth: 3,
+        stroke: "currentcolor",
+        strokeWidth: "0.15em",
       }}
     />
     <path
       d="M60,10L90,10L90,40"
       style={{
         fill: "none",
-        stroke: "white",
-        strokeWidth: 3,
+        stroke: "currentcolor",
+        strokeWidth: "0.15em",
       }}
     />
     <path
       d="M90,60L90,90L60,90"
       style={{
         fill: "none",
-        stroke: "white",
-        strokeWidth: 3,
+        stroke: "currentcolor",
+        strokeWidth: "0.15em",
       }}
     />
     <path
       d="M40,90L10,90L10,60"
       style={{
         fill: "none",
-        stroke: "white",
-        strokeWidth: 3,
+        stroke: "currentcolor",
+        strokeWidth: "0.15em",
       }}
     />
   </svg>
