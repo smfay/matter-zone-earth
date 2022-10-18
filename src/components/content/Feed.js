@@ -6,13 +6,13 @@ import Card from './Card'
 
 const Feed = () => {
   const [loading, setloading] = useState(false);
-  const [posts, setCards] = useState(null);
+  const [posts, setPosts] = useState(null);
   useEffect(() => {
     setloading(true);
 
     client.fetch(feedQuery)
       .then((data) => {
-        setCards(data);
+        setPosts(data);
         setloading(false);
         console.log(data)
       })
@@ -21,13 +21,13 @@ const Feed = () => {
 
 
   if (loading) return (
-    <div class="w-full h-96 border-black flex justify-center items-center border-[0.15em] rounded-lg bg-zinc-400 z-10">
+    <div class="w-screen h-screen border-black flex justify-center items-center border-[0.15em] rounded-lg bg-zinc-700 z-10">
       <Spinner />
     </div>
   )
 
   return (
-    <div class="flex flex-wrap border-black border-[0.15em] rounded-lg bg-zinc-600 z-10 shadow-inset">
+    <div class="flex flex-wrap border-black border-[0.15em] rounded-lg bg-zinc-600 z-10 shadow-inset" >
       {posts?.map((post) => <Card key={post.slug.current} post={post} />)}
     </div>
   )

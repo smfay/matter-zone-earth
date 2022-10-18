@@ -4,6 +4,7 @@ import About from "./screens/About"
 import Home from './screens/Home'
 import Archive from './screens/Archive'
 import Post from './screens/Post'
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/archive' element={<Archive />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

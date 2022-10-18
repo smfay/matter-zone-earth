@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 import client from '../client'
 import BlockContent from '@sanity/block-content-to-react'
 import Spinner from '../components/anims/Spinner'
-import { css } from '@emotion/react'
 
 
 export default function Post() {
@@ -11,7 +10,6 @@ export default function Post() {
     const [Loading, setLoading] = useState(true)
     const [bg, setBg] = useState(null)
     const [fg, setFg] = useState(null)
-    const [txt, setTxt] = useState(null)
     const { slug } = useParams()
 
     useEffect(() => {
@@ -33,7 +31,6 @@ export default function Post() {
             setLoading(false)
             setBg(data[0].mainImage.asset.metadata.palette.dominant.background)
             setFg(data[0].mainImage.asset.metadata.palette.vibrant.background)
-            setTxt(data[0].mainImage.asset.metadata.palette.darkMuted.title)
             console.log(data[0])
         }
         ).catch(console.error)

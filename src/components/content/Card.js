@@ -9,7 +9,7 @@ const Card = ({ post }) => {
             <div class="flex overflow-hidden h-full rounded border-[2px] border-black w-1/3">
                 <img class="object-cover w-full h-full shadow-inset" src={post.mainImage.asset.url} alt={post.title} />
             </div>
-            <section class="flex flex-col flex-wrap justify-start h-full w-2/3">
+            <section class="flex flex-col flex-wrap justify-start h-full w-full">
                 <div class="flex flex-col space-x-5 w-full justify-end">
                     <p class="text-xs rounded bg-zinc-300 p-1 px-2 place-self-end font-black">{post.publishedAt}</p>
                 </div>

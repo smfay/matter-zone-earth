@@ -3,6 +3,8 @@ import Logo from '../assets/svg/Logo'
 import Cards from '../components/content/Cards'
 import Feed from '../components/content/Feed'
 import SearchBar from '../components/content/SearchBar'
+import clickme from '../assets/images/clickme.gif'
+import matter from '../assets/images/matter.png'
 
 export default function Home() {
   return (
@@ -16,14 +18,19 @@ export default function Home() {
         <button class="uppercase bg-zinc-200 border-black border-[0.15em] rounded px-3">Category</button>
         <SearchBar class="w-full" />
       </span>
-      <main class="flex flex-wrap p-0 lg:p-5">
-        <section class="p-2 flex justify-center w-full">
+      <main class="flex flex-wrap w-full p-2 lg:p-5">
+        <section class="flex justify-center">
           <Feed />
         </section>
-        <section class="p-2 flex flex-wrap justify-left content-start h-64 w-1/2 p-5">
-          <h2 class="text-4xl font-bold"></h2>
-        </section>
       </main>
+
+      <article class=" flex w-full justify-center text-zinc-200 items-end bg-gradient-to-t from-black to-transparent p-2 lg:p-5">
+        <section class="w-full">
+          <h2 class="text-2xl font-black w-full">you have reached the bottom of this page</h2>
+          <p>please scroll back up, and stop snooping around</p>
+        </section>
+        <img src={clickme} class="relative" />
+      </article>
     </>
   )
 }
