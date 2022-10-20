@@ -2,12 +2,14 @@ import BlockContent from '@sanity/block-content-to-react'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
+import { client } from '../../client'
+import { urlFor } from '../../ImageUrl'
 
 const Card = ({ post }) => {
     return (
         <Link to={`/archive/${post.slug.current}`} key={post.slug.current} class="bg-zinc-400 space-x-2 flex h-56 justify-left border-zinc-700 border-[0.15em] hover:border-black hover:drop-shadow-lift hover:z-20 z-10 hover:bg-zinc-300 flex items-start hover:mx-2 hover:p-2 m-1 p-1 rounded-lg transition-all ease-in-out duration-200 grow">
             <div class="flex overflow-hidden h-full rounded border-[2px] border-black w-1/3">
-                <img class="object-cover w-full h-full shadow-inset" src={post.mainImage.asset.url} alt={post.title} />
+                <img class="object-cover w-full h-full shadow-inset" src={urlFor(post.mainImage.asset._id).width(200).url()} alt={post.title} />
             </div>
             <section class="flex flex-col flex-wrap justify-start h-full w-full">
                 <div class="flex flex-col space-x-5 w-full justify-end">
@@ -16,7 +18,7 @@ const Card = ({ post }) => {
                 <h2 class="text-xl md:text-2xl font-bold capitalize">{post.title}</h2>
                 <p class="text-xs uppercase">{post.author.name}</p>
                 <div class="flex space-x-2 space-y-2 justify-start items-end">
-                    {post.categories?.map((category) => <Tag title={category.title} />)}
+                    {post.categories?.map((category) => <Tag key={category.title} title={category.title} />)}
                 </div>
                 <div class="line-clamp-1 md:line-clamp-2 text-sm max-w-fit">
                     <BlockContent

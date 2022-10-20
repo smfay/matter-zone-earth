@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const feedQuery = (`*[_type == "post"] | order(publishedAt desc, title) {
+export const searchQuery = (search) => {
+    const query = (`*[_type == "post" && title match '${search}*'] {
     title,
     slug,
     body,
@@ -16,5 +17,28 @@ export const feedQuery = (`*[_type == "post"] | order(publishedAt desc, title) {
         alt
     },
     categories[]-> {title}
-}[0...5]`
-)
+}`)
+
+    const feedQuery = (`*[_type == "post"] | order(publishedAt desc, title) {
+    title,
+    slug,
+    body,
+    author -> {
+        name
+    },
+    publishedAt,
+    mainImage {
+        asset -> {
+            _id,
+            url
+        },
+        alt
+    },
+    categories[]-> {title}
+}`)
+
+    if (search === "") {
+        return feedQuery
+    }
+    return query;
+}

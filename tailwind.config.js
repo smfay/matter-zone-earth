@@ -5,18 +5,26 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(20deg)' },
+          '50%': { transform: 'rotate(-20deg)' },
+        }
+      },
       fontFamily: {
         'noto': ['Noto Serif Display', 'serif'],
         'inter': ['Inter Tight', 'sans-serif'],
         'blops': ['Black Ops One', 'cursive'],
       },
       backgroundImage: {
-        'main': "url('/src/assets/images/default.gif')"
+        'main': "url('/src/assets/images/dot.gif')",
+        'hills': "url('/src/assets/images/hills.png')"
       },
       animation: {
-        'twirl': 'spin 2s linear infinite',
+        'twirl': 'spin 2s ease infinite',
         'twirl-slow': 'spin 3s linear infinite',
         'twirl-slower': 'spin 4s linear infinite',
+        'wiggle': 'wiggle 6s ease-in-out infinite',
       },
       boxShadow: {
         'inset': 'inset 0px 10px 50px rgba(0,0,0,1)',
