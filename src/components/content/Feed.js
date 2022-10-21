@@ -40,14 +40,14 @@ const Feed = () => {
   return (
     <div>
       {loading &&
-        <div class="w-full h-screen border-black flex justify-center items-center border-theme rounded-lg bg-zinc-700 z-10">
+        <div className="w-full h-screen border-black flex justify-center items-center border-theme rounded-lg bg-zinc-700 z-10">
           <Spinner />
         </div>
       }
-      <div class="flex flex-wrap border-black border-theme rounded-lg backdrop-contrast-[3] z-10 lg:mx-32 shadow-inset" >
-        <form onSubmit={HandleSubmit} class="appearance-none z-50 border-black border-theme w-full bg-zinc-400 rounded m-1 flex justify-end px-2 drop-shadow-lift">
+      <div className="flex flex-wrap border-black border-theme rounded-lg backdrop-contrast-[3] z-10 lg:mx-32 shadow-inset" >
+        <form onSubmit={HandleSubmit} className="appearance-none z-50 border-black border-theme w-full bg-zinc-400 rounded m-1 flex justify-end px-2 drop-shadow-lift">
           <input
-            class="bg-zinc-200 focus:outline-none border-theme border-black m-1 rounded px-4 focus:drop-shadow-lift transition-all ease-in-out duration-200" placeholder='Search'
+            className="bg-zinc-200 focus:outline-none border-theme border-black m-1 rounded px-4 focus:drop-shadow-lift transition-all ease-in-out duration-200" placeholder='Search'
             id='searchInput'
             name='searchInput'
             value={search}
@@ -63,9 +63,9 @@ const Feed = () => {
           />
           <button
             type='submit'
-            class="font-bold"
+            className="font-bold"
           >
-            <SearchIcon class="h-7" />
+            <SearchIcon className="h-7" />
           </button>
         </form>
         {posts?.map((post) => <Card key={post.slug.current} post={post} />)}

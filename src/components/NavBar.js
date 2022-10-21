@@ -5,26 +5,26 @@ import Spinner from '../components/anims/Spinner'
 
 export default function NavBar() {
     return (
-        <div class="bg-gradient-to-b from-black to-transparent z-40 fixed flex flex p-2 lg:px-20 items-center w-full">
-            <nav class="flex justify-between space-x-10 items-center w-full">
-                <span class="flex items-center space-x-5">
-                    <a href="/home" class="flex justify-start items-center" >
-                        <Logo class="text-black bg-zinc-300 drop-shadow-lift-hard border-theme rounded border-black h-16 lg:h-18 transition-all ease-in-out duration-300" />
+        <div className="bg-gradient-to-b from-black to-transparent z-40 fixed flex flex p-2 lg:px-20 items-center w-full">
+            <nav className="flex justify-between space-x-10 items-center w-full">
+                <span className="flex items-center space-x-5">
+                    <a href="/home" className="flex justify-start items-center" >
+                        <Logo className="text-black bg-zinc-300 drop-shadow-lift-hard border-theme rounded border-black h-16 lg:h-18 transition-all ease-in-out duration-300" />
                     </a>
-                    <div class="hidden md:flex h-fit content-center text-xs lg:text-base rounded bg-zinc-300 border-black border-theme drop-shadow-lift-hard space-x-5 px-5 ">
-                        <a href="/home" class="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">HOME</a>
-                        <a href="/about" class="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ABOUT</a>
-                        <a href="/archive" class="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ARCHIVE</a>
-                        <a href="/zones" class="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ZONES</a>
-                        <a href="/archive" class="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ONE OF US</a>
+                    <div className="hidden md:flex h-fit content-center text-xs lg:text-base rounded bg-zinc-300 border-black border-theme drop-shadow-lift-hard space-x-5 px-5 ">
+                        <a href="/home" className="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">HOME</a>
+                        <a href="/about" className="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ABOUT</a>
+                        <a href="/archive" className="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ARCHIVE</a>
+                        <a href="/zones" className="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ZONES</a>
+                        <a href="/archive" className="font-bold ring-offset-0 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">ONE OF US</a>
                     </div>
                 </span>
-                <div class="hidden md:flex items-end justify-end text-xs lg:text-base rounded bg-zinc-300 border-black border-theme drop-shadow-lift-hard space-x-3 px-3 ">
-                    <a href="/home" class="font-bold ring-offset-0 px-3 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">SIGN IN</a>
+                <div className="hidden md:flex items-end justify-end text-xs lg:text-base rounded bg-zinc-300 border-black border-theme drop-shadow-lift-hard space-x-3 px-3 ">
+                    <a href="/home" className="font-bold ring-offset-0 px-3 py-2 rounded-lg hover:py-1 transition-all ease-in-out duration-300">SIGN IN</a>
                 </div>
             </nav>
-            <div class="flex">
-                <MenuIcon class="h-16 md:hidden p-1 block justify-self-end rounded bg-zinc-300 border-black border-theme" />
+            <div className="flex">
+                <MenuIcon className="h-16 md:hidden p-1 block justify-self-end rounded bg-zinc-300 border-black border-theme" />
             </div>
 
         </div>

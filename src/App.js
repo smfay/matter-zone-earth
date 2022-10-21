@@ -9,7 +9,7 @@ import Zones from './screens/Zones';
 
 function App() {
   return (
-    <div class="bg-main bg-zinc-500 bg-fixed w-full h-full font-inter text-black -z-50 ">
+    <div className="bg-main bg-zinc-500 bg-fixed w-full h-full font-inter text-black -z-50 ">
       <Router>
         <NavBar />
         <Routes>
