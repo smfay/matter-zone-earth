@@ -40,14 +40,14 @@ const Feed = () => {
   return (
     <div>
       {loading &&
-        <div className="w-full h-screen border-black flex justify-center items-center border-theme rounded-lg bg-zinc-700 z-10">
+        <div className="w-full h-screen flex justify-center items-center  rounded-lg z-10">
           <Spinner />
         </div>
       }
-      <div className="flex flex-wrap border-black border-theme rounded-lg backdrop-contrast-[3] z-10 lg:mx-32 shadow-inset" >
-        <form onSubmit={HandleSubmit} className="appearance-none z-50 border-black border-theme w-full bg-zinc-400 rounded m-1 flex justify-end px-2 drop-shadow-lift">
+      <div className="flex flex-wrap rounded-lg  z-10 lg:mx-32 " >
+        <form onSubmit={HandleSubmit} className="appearance-none z-50 border-black border-theme w-full bg-zinc-400 rounded m-1 flex justify-end px-2 drop-shadow-lift-hard">
           <input
-            className="bg-zinc-200 focus:outline-none border-theme border-black m-1 rounded px-4 focus:drop-shadow-lift transition-all ease-in-out duration-200" placeholder='Search'
+            className="bg-zinc-200 focus:outline-none border-theme border-black m-1 rounded px-4 focus:mb-5 focus:drop-shadow-lift-hard transition-all ease-in-out duration-200" placeholder='Search'
             id='searchInput'
             name='searchInput'
             value={search}
