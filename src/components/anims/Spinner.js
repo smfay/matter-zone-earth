@@ -6,7 +6,7 @@ export default function Spinner() {
     return (
         <div class="flex items-center justify-center w-full h-full aspect-square">
             <div class="flex items-center w-32 h-32 aspect-square">
-                <Spinner2 class="h-16 animate-twirl" />
+                <Spinner2 class="h-32 animate-twirl" />
             </div>
         </div>
     )

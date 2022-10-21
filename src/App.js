@@ -5,6 +5,7 @@ import Home from './screens/Home'
 import Archive from './screens/Archive'
 import Post from './screens/Post'
 import Footer from './components/Footer';
+import Zones from './screens/Zones';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path='/archive/:slug' element={<Post />} />
           <Route exact path='/home' element={<Home />} />
+          <Route exact path='/zones' element={<Zones />} />
           <Route path='/about' element={<About />} />
           <Route path='/archive' element={<Archive />} />
         </Routes>

@@ -5,25 +5,43 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(5deg)' },
+          '50%': { transform: 'rotate(-5deg)' },
+        }
+      },
       fontFamily: {
         'noto': ['Noto Serif Display', 'serif'],
         'inter': ['Inter Tight', 'sans-serif'],
         'blops': ['Black Ops One', 'cursive'],
       },
       backgroundImage: {
-        'main': "url('/src/assets/images/default.gif')"
+        'main': "url('/src/assets/images/dot.gif')",
+        'hills': "url('/src/assets/images/hills.png')"
       },
       animation: {
-        'twirl': 'spin 2s linear infinite',
+        'twirl': 'spin 2s ease infinite',
         'twirl-slow': 'spin 3s linear infinite',
         'twirl-slower': 'spin 4s linear infinite',
+        'wiggle': 'wiggle 4s ease-in-out infinite',
+        'wiggle-slow': 'wiggle 6s ease-in-out infinite',
+      },
+      borderWidth: {
+        DEFAULT: '1px',
+        '0': '0',
+        '2': '2px',
+        '3': '3px',
+        '4': '4px',
+        '6': '6px',
+        'theme': '2px',
       },
       boxShadow: {
-        'inset': 'inset 0px 10px 50px rgba(0,0,0,1)',
+        'inset': 'inset 0px 10px 80px rgba(0,0,0,1)',
       },
       dropShadow: {
         'lift': '0px 15px 10px rgba(1, 1, 1, 0.8)',
-        'lift-hard': '5px 5px 0px rgba(1, 1, 1, 1)',
+        'lift-hard': '3px 3px 0px rgba(1, 1, 1, 1)',
         'lift-down': '0px 10px 20px rgba(1, 1, 1, 1)',
         '4xl': [
           '0 35px 35px rgba(0, 0, 0, 0.25)',
