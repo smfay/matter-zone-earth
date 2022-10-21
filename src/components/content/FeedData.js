@@ -10,10 +10,7 @@ export const searchQuery = (search) => {
     },
     publishedAt,
     mainImage {
-        asset -> {
-            _id,
-            url
-        },
+        asset ->,
         alt
     },
     categories[]-> {title}
@@ -28,10 +25,7 @@ export const searchQuery = (search) => {
     },
     publishedAt,
     mainImage {
-        asset -> {
-            _id,
-            url
-        },
+        asset ->,
         alt
     },
     categories[]-> {title}
