@@ -41,9 +41,9 @@ export default function Post() {
     return (
         <>
             {Loading ? (
-                <main className="bg-black min-w-screen min-h-screen text-white">
-                    <Spinner />
-                </main>
+                <div className="w-screen h-full fixed bg-black justify-center items-center text-zinc-200 justify-self-center rounded-lg z-30 left-0 top-0">
+                    <Spinner class="drop-shadow-lift-hard" />
+                </div>
             ) : (
                 <div>
                     <header className="h-64 flex flex-wrap text-right text-zinc-200 justify-center border-black content-center items-center overflow-hidden">
