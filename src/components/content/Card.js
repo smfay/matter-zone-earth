@@ -8,7 +8,7 @@ import { urlFor } from '../../ImageUrl'
 const Card = ({ post }) => {
     const bg = (post.mainImage.asset.metadata.palette.vibrant.background);
     return (
-        <Link to={`/archive/${post.slug.current}`} key={post.slug.current} className="bg-zinc-400 space-x-2 flex h-56 justify-left border-black border-theme hover:drop-shadow-lift-hard active:p-5 hover:z-20 z-10 hover:bg-zinc-100 flex items-start hover:mx-2 hover:p-2 m-1 p-3 rounded transition-all ease-in-out duration-300 grow">
+        <Link to={`/archive/${post.slug.current}`} key={post.slug.current} className="bg-zinc-400 space-x-2 flex h-56 justify-left border-black border-theme hover:drop-shadow-lift-hard active:p-5 hover:z-20 z-10 hover:bg-zinc-100 flex items-start hover:mx-2 hover:p-2 m-1 p-3 rounded transition-all ease-in-out duration-100 grow">
             <div className="flex overflow-hidden h-full rounded border-theme border-black w-1/2">
                 <img className="object-cover w-full h-full shadow-inset" src={urlFor(post.mainImage.asset._id).width(300).url()} alt={post.title} />
             </div>
