@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import client from '../client'
 import BlockContent from '@sanity/block-content-to-react'
 import Spinner from '../components/anims/Spinner'
+import client from '../client'
+import { urlFor } from '../ImageUrl'
 
 
 export default function Post() {
@@ -49,8 +50,8 @@ export default function Post() {
                     <header className="h-64 flex flex-wrap text-right text-zinc-200 justify-center border-black content-center items-center overflow-hidden">
                         {singlePost.mainImage && singlePost.mainImage.asset && (
                             <img
-                                className="object-cover w-full -h-full"
-                                src={singlePost.mainImage.asset.url}
+                                className="object-cover w-full -h-full blur"
+                                src={urlFor(singlePost.mainImage.asset._id).width(50).url()}
                                 alt={singlePost.title}
                                 title={singlePost.title}
                             />
