@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import client from '../../client'
 import Spinner from '../anims/Spinner'
-import { searchQuery } from './FeedData'
 import Card from './Card'
 import SearchIcon from '../../assets/svg/icons/SearchIcon'
 
@@ -10,32 +9,26 @@ const Feed = () => {
   const [posts, setPosts] = useState(null);
   const [search, setSearch] = useState("");
 
-  const HandleSubmit = (event) => {
+  const HandleSubmit = async (event) => {
     event.preventDefault()
-
-    setloading(true);
-    client.fetch(searchQuery(search))
-      .then((data) => {
-        setPosts(data);
-        setloading(false);
-        console.log(data)
-      })
-      .catch(console.error)
+    grabPosts(search);
 
   }
 
   useEffect(() => {
-    setloading(true);
-
-    client.fetch(searchQuery(search))
-      .then((data) => {
-        setPosts(data);
-        setloading(false);
-        console.log(data)
-      })
-      .catch(console.error)
+    grabPosts("");
   }, [])
 
+  async function grabPosts(q) {
+    let url = "http://localhost:3001/posts?" + new URLSearchParams({ q: q })
+    console.log(url)
+    setloading(true);
+    let response = await fetch(url)
+    let data = await response.json()
+    setPosts(data);
+    setloading(false);
+    console.log(data)
+  }
 
   return (
     <div>
