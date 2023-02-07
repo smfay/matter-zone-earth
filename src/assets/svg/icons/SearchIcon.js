@@ -54,10 +54,17 @@ const SearchIcon = (props) => (
             />
         </g>
         <g transform="matrix(1,0,0,1,-1.42109e-14,-2)">
-            <circle cx={40} cy={40} r={5} />
+            <circle cx={40} cy={40} r={5}
+                style={{
+                    fill: "currentcolor",
+                }} />
         </g>
         <g transform="matrix(1,0,0,1,-1.42109e-14,-2)">
-            <circle cx={60} cy={40} r={5} />
+            <circle cx={60} cy={40} r={5}
+                style={{
+                    fill: "currentcolor",
+                }}
+            />
         </g>
     </svg>
 );

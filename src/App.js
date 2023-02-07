@@ -6,10 +6,17 @@ import Archive from './screens/Archive'
 import Post from './screens/Post'
 import Footer from './components/Footer';
 import Zones from './screens/Zones';
+import noise from './assets/images/noisetexture.png'
 
 function App() {
   return (
-    <div className="selection:bg-zinc-700 selection:text-zinc-300 bg-main bg-zinc-500  bg-fixed w-full h-full font-inter text-black -z-50">
+    <div className="selection:bg-zinc-100 selection:text-zinc-900 bg-zinc-900 bg-fixed w-full h-full font-inter text-zinc-300 -z-50"
+      style={
+        {
+          backgroundImage: `url(${noise})`,
+        }
+      }
+    >
       <Router>
         <NavBar />
         <Routes>
@@ -22,7 +29,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </div>
+    </div >
   );
 }
 

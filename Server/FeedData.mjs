@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const searchQuery = (search) => {
     const query = (`*[_type == "post" && title match '${search}*'] {
     title,

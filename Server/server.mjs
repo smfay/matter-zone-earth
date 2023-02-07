@@ -11,3 +11,4 @@ let client = sanity({
 
 client.fetch(searchQuery("Denote"))
     .then(data => console.log(data))
+

@@ -37,10 +37,10 @@ const Feed = () => {
           <Spinner class="drop-shadow-lift-hard" />
         </div>
       }
-      <div className="flex flex-wrap rounded-lg  z-10 lg:mx-32 " >
-        <form onSubmit={HandleSubmit} className="appearance-none border-black border-theme w-full bg-zinc-400 rounded m-1 flex justify-end px-2 drop-shadow-lift-hard">
+      <div className="flex flex-wrap rounded z-10 w-full bg-zinc-900 drop-shadow-lift-down" >
+        <form onSubmit={HandleSubmit} className="appearance-none w-full rounded m-1 h-12 flex justify-end px-2 items-center">
           <input
-            className="bg-zinc-200 focus:outline-none border-theme border-black m-1 rounded px-4 focus:mb-5 focus:drop-shadow-lift-hard transition-all ease-in-out duration-200" placeholder='Search'
+            className="focus:outline-none bg-zinc-800 m-1 rounded px-4 transition-all h-8 ease-in-out duration-200" placeholder='Search'
             id='searchInput'
             name='searchInput'
             value={search}
@@ -58,10 +58,10 @@ const Feed = () => {
             type='submit'
             className="font-bold"
           >
-            <SearchIcon className="h-7" />
+            <SearchIcon className="h-6 text-zinc-500" />
           </button>
         </form>
-        {posts?.map((post) => <Card key={post.slug.current} post={post} />)}
+        {posts?.map((post) => <Card key={post.slug.current} post={post} className="flex" />)}
       </div>
     </div>
   )

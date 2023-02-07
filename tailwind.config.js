@@ -18,6 +18,7 @@ module.exports = {
       },
       backgroundImage: {
         'main': "url('/src/assets/images/dot.gif')",
+        'noise': "url('/src/assets/images/noisetexture.png)",
         'hills': "url('/src/assets/images/hills.png')"
       },
       animation: {

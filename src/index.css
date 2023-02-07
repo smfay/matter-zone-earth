@@ -8,15 +8,15 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: black;
+    background: #27272a;
     border-radius: 10px;
     border-width: 1px;
-    border-style: solid;
+    border-style: none;
     border-color: white;
   }
 
   ::-webkit-scrollbar-track {
-    background: black;
+    background: #18181b;
     border-color: rgb(24 24 27);
     border-width: 1px;
     border-style: solid;

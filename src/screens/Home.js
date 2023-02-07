@@ -3,16 +3,24 @@ import Logo from '../assets/svg/Logo'
 import Feed from '../components/content/Feed'
 import clickme from '../assets/images/clickme.gif'
 import dude from '../assets/images/dude.png'
+import SideBar from '../components/content/SideBar'
 
 export default function Home() {
   return (
     <>
-      <header className="lg:px-32 h-64 flex flex-wrap backdrop-contrast-[3] drop-shadow-lift-hard flex-wrap text-right text-zinc-200 justify-end border-black items-end p-8">
-        <h2 className="font-black lg:text-5xl text-4xl animate-wiggle drop-shadow-lift-hard z-50">new!</h2>
-        <img className="h-2/5 md:h-2/3 animate-wiggle-slow fixed z-40" src={dude}></img>
+      <header className="lg:px-32 h-64 flex flex-wrap items-start flex-wrap text-right text-zinc-200 justify-start items-end p-8">
+        {/* <h2 className="font-black lg:text-5xl text-4xl animate-wiggle drop-shadow-lift-hard z-50">new!</h2>
+        <img className="h-2/5 md:h-2/3 animate-wiggle-slow fixed z-40 fixed" src={dude}></img> */}
+
       </header>
-      <main className="flex flex-wrap w-full p-2 lg:p-5 border-t-theme border-black">
-        <section className="flex justify-center w-full">
+      <section>
+
+      </section>
+      <main className="grid grid-cols-6 w-full justify-center p-2">
+        <section className="flex justify-center">
+          <SideBar />
+        </section>
+        <section className="flex justify-center col-span-4">
           <Feed />
         </section>
       </main>
