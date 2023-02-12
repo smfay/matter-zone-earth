@@ -3,6 +3,7 @@ import client from '../../client'
 import Spinner from '../anims/Spinner'
 import Card from './Card'
 import SearchIcon from '../../assets/svg/icons/SearchIcon'
+import { useTrail, useChain, useTransition, useSprings, animated, useSpringRef } from '@react-spring/web'
 
 const Feed = () => {
   const [loading, setloading] = useState(false);
@@ -37,10 +38,10 @@ const Feed = () => {
           <Spinner class="drop-shadow-lift-hard" />
         </div>
       }
-      <div className="flex flex-wrap rounded z-10 w-full bg-zinc-900 drop-shadow-lift-down" >
+      <div className="flex flex-wrap justify-center rounded z-10 w-full grow" >
         <form onSubmit={HandleSubmit} className="appearance-none w-full rounded m-1 h-12 flex justify-end px-2 items-center">
           <input
-            className="focus:outline-none bg-zinc-800 m-1 rounded px-4 transition-all h-8 ease-in-out duration-200" placeholder='Search'
+            className="bg-zinc-800 m-1 border-zinc-500 border-theme rounded px-4 transition-all h-8 ease-in-out duration-700" placeholder='Search'
             id='searchInput'
             name='searchInput'
             value={search}

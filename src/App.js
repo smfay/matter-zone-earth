@@ -7,14 +7,13 @@ import Post from './screens/Post'
 import Footer from './components/Footer';
 import Zones from './screens/Zones';
 import noise from './assets/images/noisetexture.png'
+import CreatePost from './screens/CreatePost';
 
 function App() {
+
   return (
-    <div className="selection:bg-zinc-100 selection:text-zinc-900 bg-zinc-900 bg-fixed w-full h-full font-inter text-zinc-300 -z-50"
-      style={
-        {
-          backgroundImage: `url(${noise})`,
-        }
+    <div className="bg-zinc-900 bg-fixed overflow-hidden h-full w-full font-inter text-zinc-300 -z-50"
+      style={{ backgroundImage: `url(${noise})` }
       }
     >
       <Router>
@@ -26,6 +25,7 @@ function App() {
           <Route exact path='/zones' element={<Zones />} />
           <Route path='/about' element={<About />} />
           <Route path='/archive' element={<Archive />} />
+          <Route path='/editor' element={<CreatePost />} />
         </Routes>
         <Footer />
       </Router>

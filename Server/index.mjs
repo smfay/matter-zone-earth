@@ -1,5 +1,6 @@
 import express from 'express'
 import { searchQuery } from './FeedData.mjs'
+import { featuredQuery } from './FeaturedPost.mjs'
 const app = express()
 const port = process.env.PORT || 3001
 import cors from 'cors'
@@ -15,6 +16,11 @@ let client = sanity({
 })
 
 app.use(cors())
+
+app.get('/posts/featured', async (req, res) => {
+    let data = await client.fetch(featuredQuery())
+    res.json(data);
+})
 
 app.get('/posts', async (req, res) => {
     let search = req.query.q
