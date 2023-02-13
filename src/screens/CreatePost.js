@@ -13,8 +13,9 @@ export default function CreatePost() {
         <>
             <main className="space-x-2 w-full justify-center min-h-screen p-4 md:px-12 lg:px-32">
                 <section className="justify-start pt-32">
-                    <h1 className='font-semibold text-6xl' >Editor</h1>
-                    <PostEditor />
+                    <div className='text-zinc-300 rounded'>
+                        <PostEditor />
+                    </div>
                 </section>
             </main>
         </>

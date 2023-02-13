@@ -47,7 +47,7 @@ const Card = ({ post }) => {
 
 export const Tag = (props) => {
     return (
-        <div key={props.title} className="bg-black  px-2 py-0 h-6 flex items-center justify-center rounded">
+        <div key={props.title} className="bg-black px-2 py-0 h-6 flex items-center justify-center rounded">
             <p className="text-xs text-zinc-200 font-bold uppercase">{props.title}</p>
         </div>
     )

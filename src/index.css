@@ -23,12 +23,72 @@
     border-top: 0;
     border-bottom: 0;
   }
-}
 
-.hid {
-  opacity: 0;
-}
+  .post-preview h1 {
+    @apply text-6xl font-semibold;
+  }
 
-.show {
-  opacity: 1;
+  .post-preview h2 {
+    @apply text-4xl font-semibold;
+  }
+
+  .post-preview h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  .post-preview p {
+    @apply font-light;
+  }
+
+  .post-preview a {
+    @apply text-blue-500 underline;
+  }
+
+  .post-preview ul {
+    @apply list-disc list-inside indent-8;
+  }
+
+  .post-preview ol {
+    @apply list-decimal list-inside indent-8;
+  }
+
+  .post-preview blockquote {
+    @apply border-l-4 indent-8 ;
+  }
+
+  .post-preview .ql-align-center {
+    @apply text-center ;
+  }
+
+  .post-preview .ql-align-right {
+    @apply text-right ;
+  }
+
+  .post-preview .ql-align-justify {
+    @apply text-justify ;
+  }
+
+  .post-preview img {
+    @apply w-1/2 float-left p-1 m-1;
+  }
+
+  form input {
+    @apply bg-zinc-800 rounded px-4 transition-all h-8 ease-in-out duration-700;
+  }
+
+  ql-align-justify img {
+    @apply w-full m-1 p-1;
+  }
+
+  .editor-input img {
+    @apply flex object-cover w-full h-32
+  }
+
+  .ql-container {
+    @apply bg-black text-white w-full h-full
+  }
+  
+  .ql-toolbar {
+    @apply bg-black text-white w-full h-full
+  }
 }
