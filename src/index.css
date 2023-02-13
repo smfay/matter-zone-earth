@@ -85,10 +85,27 @@
   }
 
   .ql-container {
-    @apply bg-black text-white w-full h-full
+    @apply text-black w-fit h-full ;
   }
   
   .ql-toolbar {
-    @apply bg-black text-white w-full h-full
+    @apply text-white w-full h-full
+  }
+
+
+  .ql-editor {
+    @apply bg-zinc-300 text-black ;
+  }
+
+  .ql-blank {
+    @apply bg-zinc-300 text-black;
+  }
+
+  #editor {
+    @apply bg-zinc-300 text-black rounded m-2 p-2
+  }
+
+  #toolbar {
+    @apply bg-zinc-300 rounded
   }
 }

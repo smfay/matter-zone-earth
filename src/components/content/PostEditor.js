@@ -2,29 +2,57 @@ import React, { useState, useRef, useEffect } from 'react'
 import ReactQuill, { Quill } from 'react-quill';
 import "react-quill/dist/quill.snow.css";
 import parse, { attributesToProps } from 'html-react-parser';
-import CardEditorPreview from './CardEditorPreview';
+import CardEditorPreview from './editor/CardEditorPreview';
 import { contains } from '@firebase/util';
 
+export const CustomToolbar = () => {
+    return (
+        <div >
+            <div className='ql-toolbar w-full h-full'>
+                <select className="ql-header" defaultValue={"normal"} onChange={e => e.persist()}>
+                    <option value="1" />
+                    <option value="2" />
+                </select>
+                <button className="ql-bold" />
+                <button className="ql-italic" />
+                <button className="ql-align" />
+            </div>
+        </div>
+    )
+}
 
-export default function PostEditor() {
+export const PostEditor = () => {
     const [text, setText] = useState('')
     const [textOutput, setTextOutput] = useState('')
     const [title, setTitle] = useState('')
     const [mainImage, setMainImage] = useState()
     const [imagePreview, setImagePreview] = useState('')
+    const editorContainer = document.getElementById('editor')
+    const toolbarContainer = document.getElementById('toolbarContainer')
 
-    const CustomToolbar = () => (
-        <div id="toolbar" className='ql-toolbar'>
-            <select className="ql-header text-black" defaultValue={""} onChange={e => e.persist()}>
-                <option value="1" name="Heading1" />
-                <option value="2" />
-                <option selected />
-            </select>
-            <button className="ql-bold" />
-            <button className="ql-italic" />
-        </div>
-    );
+    const quill = new Quill(editorContainer, {
+        modules: {
+            toolbar: '#toolbarContainer',
+        },
+    },
+    )
 
+    const Editor = () => {
+
+        return (
+            <>
+                <CustomToolbar />
+                <div >
+                    <ReactQuill theme='snow' className='w-full bg-black rounded editor-input' value={text}
+                        onChange={(e) => { handleChange(e) }}
+                        modules={quill.modules}
+                        toolbar='#toolbar'
+                        formats={formats}
+                    />
+                </div >
+            </>
+        )
+    }
 
     function insertSpan() {
         const value = `<span></span>`
@@ -81,7 +109,6 @@ export default function PostEditor() {
     }
 
     function handleChange(value) {
-        styleInsert(value)
         setText(value)
     }
 
@@ -140,14 +167,7 @@ export default function PostEditor() {
                 <main className='w-full h-full flex flex-col md:flex-row mb-96'>
                     <div className='rounded p-2 md:w-1/3'>
                         <h1 className='font-light w-full text-sm text-zinc-500 mb-6 text-right p-2 rounded' >EDITOR</h1>
-                        <div id='editor'>
-                            <CustomToolbar />
-                            <ReactQuill theme='snow' className='w-full bg-black rounded editor-input' value={text}
-                                onChange={(e) => { handleChange(e) }}
-                                modules={modules}
-                                formats={formats}
-                            />
-                        </div>
+                        <Editor />
                     </div>
                     <div className='rounded w-full md:w-2/3 p-2'>
                         <h1 className='font-LIGHT text-sm text-zinc-500 mb-6 text-right p-2 rounded' >PREVIEW</h1>
@@ -162,3 +182,5 @@ export default function PostEditor() {
         </>
     );
 }
+
+export default PostEditor;

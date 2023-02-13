@@ -2,8 +2,8 @@ import BlockContent from '@sanity/block-content-to-react'
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
-import { client } from '../../client'
-import { urlFor } from '../../ImageUrl'
+import { client } from '../../../client'
+import { urlFor } from '../../../ImageUrl'
 
 const CardEditorPreview = ({ title, image }) => {
     // const bg = (post.mainImage.asset.metadata.palette.vibrant.background);
