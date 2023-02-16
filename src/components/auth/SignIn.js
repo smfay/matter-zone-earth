@@ -38,9 +38,9 @@ const SignIn = () => {
     }
 
     return (
-        <div>
+        <div className='border-theme rounded border-black bg-zinc-400 items-between block h-80 p-4'>
 
-            <div className='flex flex-col rounded align-start p-4 space-y-4 text-zinc-300'>
+            <div className='flex flex-col rounded align-start text-black'>
                 {loginMode ?
                     <button className='place-self-end' onClick={handleModeSwitch}>Create an account -></button>
                     :
@@ -50,42 +50,42 @@ const SignIn = () => {
 
 
             {loginMode ?
-                <form onSubmit={signIn} className='flex flex-col rounded align-start p-4 space-y-4 text-zinc-300'>
-                    <h1 className='font-semibold text-3xl text-zinc-300'>Log In</h1>
+                <form onSubmit={signIn} className='flex flex-col h-full rounded items-between space-y-4 text-black'>
+                    <h1 className='font-semibold text-3xl'>Log In</h1>
                     <input
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         placeholder='Email'
-                        className='text-zinc-300 bg-zinc-800 rounded px-4 transition-all h-8 ease-in-out duration-700'
+                        className=''
                     ></input>
                     <input
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder='Password'
-                        className='text-zinc-300 bg-zinc-800 rounded px-4 transition-all h-8 ease-in-out duration-700'
+                        className=''
                     ></input>
-                    <button className='rounded-full text-zinc-300 bg-green-600 w-fit h-12 w-12 p-2 place-self-end' type='submit'> -> </button>
+                    <button className='rounded-full text-black bg-green-600 hover:bg-amber-600 border-theme border-black w-fit h-12 w-12 p-2 place-self-end hover:drop-shadow-lift-hard transition-all ease-in-out duration-300' type='submit'> -> </button>
                 </form>
                 :
-                <form onSubmit={signUp} className='flex flex-col rounded align-start p-4 space-y-4 text-zinc-300'>
-                    <h1 className='font-semibold text-3xl text-zinc-300'>Sign Up</h1>
+                <form onSubmit={signUp} className='flex flex-col h-full rounded items-between space-y-4 text-black'>
+                    <h1 className='font-semibold text-3xl'>Sign up</h1>
                     <input
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         placeholder='Email'
-                        className='text-zinc-300 bg-zinc-800 rounded px-4 transition-all h-8 ease-in-out duration-700'
+                        className=''
                     ></input>
                     <input
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder='Password'
-                        className='text-zinc-300 bg-zinc-800 rounded px-4 transition-all h-8 ease-in-out duration-700'
+                        className=''
                     ></input>
-                    <button className='rounded-full text-zinc-300 bg-green-600 w-fit h-12 w-12 p-2 place-self-end' type='submit'> -> </button>
+                    <button className='rounded-full text-black bg-green-600 hover:bg-amber-600 border-theme border-black w-fit h-12 w-12 p-2 place-self-end hover:drop-shadow-lift-hard transition-all ease-in-out duration-300' type='submit'> -> </button>
                 </form>
             }
         </div>

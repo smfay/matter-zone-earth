@@ -12,9 +12,9 @@ import CreatePost from './screens/CreatePost';
 function App() {
 
   return (
-    <div className="bg-zinc-500 bg-fixed overflow-hidden h-full w-full font-inter text-zinc-300 -z-50"
-      style={{ backgroundImage: `url(${noise})` }
-      }
+    <div className="bg-zinc-500 bg-fixed overflow-hidden h-full w-full font-inter text-black -z-50"
+    // style={{ backgroundImage: `url(${noise})` }
+    // }
     >
       <Router>
         <NavBar />

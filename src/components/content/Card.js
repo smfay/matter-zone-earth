@@ -17,14 +17,14 @@ const Card = ({ post }) => {
                 }
             }
             key={post.slug.current}
-            className="group overflow-hidden m-2 rounded transition-all hover:drop-shadow-lift-down ease-in-out duration-100 h-60 border-zinc-500 hover:border-zinc-100 f-full hover:border-theme flex grow">
+            className="group overflow-hidden rounded border-theme border-black transition-all hover:drop-shadow-lift-hard ease-in-out duration-100 h-60 max-w-fit hover:border-theme flex grow">
             <main
-                className="backdrop-brightness-[0.3] backdrop-blur-lg w-full h-full justify-left flex items-start transition-all ease-in-out duration-100">
-                <div className="flex align-center justify-center items-center overflow-hidden w-full max-w-1/2 h-full grow-0 bg-black transition-all ease-in-out duration-100">
-                    <img className="object-cover h-full  flex grow transition-all ease-in-out duration-100" src={urlFor(post.mainImage.asset._id).width(300).url()} alt={post.title} />
+                className="bg-zinc-500 group-hover:bg-zinc-300 backdrop-brightness-[0.3] backdrop-blur-lg w-full h-full justify-left flex items-start transition-all ease-in-out duration-100">
+                <div className="flex border-r-theme border-black align-center justify-center items-center overflow-hidden w-full max-w-[25%] h-full grow-0 bg-black transition-all ease-in-out duration-100">
+                    <img className="object-cover h-full flex grow transition-all ease-in-out duration-100" src={urlFor(post.mainImage.asset._id).width(300).url()} alt={post.title} />
                 </div>
-                <section className="flex flex-col h-full backdrop-blur flex-wrap justify-start p-4 ">
-                    <h2 className="text-xl md:text-2xl font-semibold group-hover:text-white line-clamp-3 capitalize sm:max-w-sm lg:max-w-md">{post.title}</h2>
+                <section className="flex flex-col h-full w-full backdrop-blur flex-wrap justify-start p-4 ">
+                    <h2 className="text-xl md:text-2xl font-semibold line-clamp-3 capitalize sm:max-w-sm lg:max-w-md">{post.title}</h2>
                     <p className="text-xs uppercase">{post.author.name}</p>
                     <div className="flex flex-wrap space-x-2 space-y-2 justify-start items-end">
                         {post.categories?.map((category, index) => <Tag index={index} key={index} title={category.title} />)}

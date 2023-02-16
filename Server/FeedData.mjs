@@ -14,7 +14,7 @@ export const searchQuery = (search) => {
     },
     categories[]-> {title}
 }`)
-    const feedQuery = (`*[_type == "post" && featured != true][0..5] | order(publishedAt desc, title) {
+    const feedQuery = (`*[_type == "post" && featured != true][0..10] | order(publishedAt desc, title) {
     title,
     slug,
     body,

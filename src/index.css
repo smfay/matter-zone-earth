@@ -73,7 +73,11 @@
   }
 
   form input {
-    @apply bg-zinc-800 rounded px-4 transition-all h-8 ease-in-out duration-700;
+    @apply bg-zinc-300 rounded border-theme text-black border-black px-4 transition-all h-8 ease-in-out duration-700;
+  }
+
+  input button {
+    @apply bg-zinc-300 rounded border-theme border-black text-black px-4 transition-all h-8 ease-in-out duration-700;
   }
 
   ql-align-justify img {
@@ -92,20 +96,76 @@
     @apply text-white w-full h-full
   }
 
-
   .ql-editor {
-    @apply bg-zinc-300 text-black ;
+    @apply bg-zinc-600 text-black;
   }
 
   .ql-blank {
-    @apply bg-zinc-300 text-black;
+    @apply bg-zinc-600 text-black text-xl;
   }
 
   #editor {
-    @apply bg-zinc-300 text-black rounded m-2 p-2
+    @apply bg-zinc-300 border-theme border-black text-black rounded mt-4 p-2 text-xl font-inter
   }
 
   #toolbar {
-    @apply bg-zinc-300 rounded
+    @apply bg-zinc-300 border-0 rounded text-xl font-inter
   }
+
+  #editor h1 {
+    @apply font-inter font-semibold text-5xl
+  }
+
+  #editor h2 {
+    @apply font-inter font-semibold text-4xl
+  }
+
+  #editor h3 {
+    @apply font-inter font-semibold text-3xl
+  }
+
+  #editor p {
+    @apply font-inter text-base font-inter;
+  }
+
+  .ql-editor .contain {
+    @apply bg-zinc-400 p-4 grid auto-cols-auto gap-4 rounded border-theme border-black border-dashed;
+  }
+
+  .ql-editor .contain-column {
+    @apply bg-zinc-300 p-4 rounded border-theme border-black;
+  }
+
+
+  #editor ol {
+    @apply font-inter text-base font-inter
+  }
+
+  #editor ul {
+    @apply font-inter text-base font-inter
+  }
+
+  input::file-selector-button {
+    @apply hover:bg-zinc-400 bg-zinc-500 border-theme border-black m-1 rounded text-xs align-middle;
+  }
+
+  .editor-box {
+    @apply bg-red-500 border-theme border-black grid grid-cols-2 auto-rows-auto gap-4
+  }
+
+
+
+
+
+
+
+
+  .block {
+    @apply bg-zinc-500 border-dashed border-theme rounded border-black active:bg-zinc-300 active:drop-shadow-lift-hard;
+  }
+
+  .blocktools button {
+    @apply bg-zinc-500 hover:bg-zinc-300 rounded w-6 h-6;
+  }
+
 }

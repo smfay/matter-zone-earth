@@ -17,12 +17,12 @@ const FeaturedCard = ({ post }) => {
                 }
             }
             key={post.slug.current}
-            className="group m-2 rounded w-full h-96 ease-in-out duration-100 border-zinc-500 hover:border-zinc-100 border-theme flex grow transition-all ease-in-out duration-100">
+            className="group rounded w-full h-80 ease-in-out duration-100 border-black border-theme flex grow transition-all ease-in-out duration-100 hover:drop-shadow-lift-hard">
             <main
-                className="backdrop-brightness-[0.3] backdrop-blur-lg w-full h-full justify-left flex items-start transition-all ease-in-out duration-100">
+                className="bg-zinc-500 group-hover:bg-zinc-300 backdrop-brightness-[0.3] backdrop-blur-lg w-full h-full justify-left flex items-start transition-all ease-in-out duration-100">
                 <section className="flex flex-col backdrop-blur flex-wrap justify-start p-4 h-full">
-                    <h2 className="font-light group-hover:text-white line-clamp-3 capitalize">FEATURED</h2>
-                    <h2 className="text-4xl lg:text-5xl font-semibold group-hover:text-white capitalize pb-2">{post.title}</h2>
+                    <h2 className="font-light line-clamp-3 capitalize">FEATURED</h2>
+                    <h2 className="text-4xl lg:text-5xl font-semibold capitalize pb-2">{post.title}</h2>
                     <p className="text-xs uppercase">{post.author.name}</p>
                     <div className="flex flex-wrap space-x-2 space-y-2 justify-start items-end">
                         {post.categories?.map((category, index) => <Tag index={index} key={index} title={category.title} />)}
@@ -38,7 +38,7 @@ const FeaturedCard = ({ post }) => {
                     </div> */}
                     <p className="absolute text-sm text-right uppercase font-semibol bottom-0 right-0 p-4">{post.approval} points</p>
                 </section>
-                <div className="flex overflow-hidden h-full w-full grow bg-black">
+                <div className="border-l-theme border-black flex overflow-hidden h-full w-full max-w-[40%] grow bg-black">
                     <img className="object-cover h-full flex grow" src={urlFor(post.mainImage.asset._id).width(1024).url()} alt={post.title} />
                 </div>
             </main>

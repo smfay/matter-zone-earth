@@ -38,31 +38,36 @@ const Feed = () => {
           <Spinner class="drop-shadow-lift-hard" />
         </div>
       }
-      <div className="flex flex-wrap justify-center rounded z-10 w-full grow" >
-        <form onSubmit={HandleSubmit} className="appearance-none w-full rounded m-1 h-12 flex justify-end px-2 items-center">
-          <input
-            className="bg-zinc-800 m-1 border-zinc-500 border-theme rounded px-4 transition-all h-8 ease-in-out duration-700" placeholder='Search'
-            id='searchInput'
-            name='searchInput'
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value)
-              let keyword = search;
-              if (search === "") {
-                console.log("search is empty")
-                HandleSubmit()
+      <div className="flex items-start flex-wrap justify-center rounded z-10 w-full grow" >
+
+        <form onSubmit={HandleSubmit} className="appearance-none w-full rounded flex-col flex justify-end items-end">
+          <div className='flex pb-4'>
+            <input
+              className="" placeholder='Search'
+              id='searchInput'
+              name='searchInput'
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value)
+                let keyword = search;
+                if (search === "") {
+                  console.log("search is empty")
+                  HandleSubmit()
+                }
               }
-            }
-            }
-          />
-          <button
-            type='submit'
-            className="font-bold"
-          >
-            <SearchIcon className="h-6 text-zinc-500" />
-          </button>
+              }
+            />
+            <button
+              type='submit'
+              className="font-bold"
+            >
+              <SearchIcon className="h-6 text-black" />
+            </button>
+          </div>
         </form>
-        {posts?.map((post) => <Card key={post.slug.current} post={post} className="flex" />)}
+        <section className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3'>
+          {posts?.map((post) => <Card key={post.slug.current} post={post} className="" />)}
+        </section>
       </div>
     </div>
   )

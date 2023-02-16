@@ -8,7 +8,7 @@ import CardEditorPreview from './CardEditorPreview';
 export default function PostInfo() {
     const [text, setText] = useState('')
     const [textOutput, setTextOutput] = useState('')
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState('Title of the post')
     const [mainImage, setMainImage] = useState()
     const [imagePreview, setImagePreview] = useState('')
 
@@ -60,12 +60,12 @@ export default function PostInfo() {
 
     return (
         <>
-            <main className='space-y-2 p-2'>
-                <h1 className='text-2xl text-right text-zinc-500  font-semibold'>Post Editor</h1>
-                <section className='flex flex-col md:flex-row h-fit'>
-                    <form className='flex flex-col p-4 w-full md:w-1/3 rounded space-y-2'>
+            <main className=''>
+                <h1 className='text-4xl text-right text-black font-semibold'>Editor</h1>
+                <section className='grid grid-cols-1 grid-rows-2 gap-4 md:grid-cols-2 md:grid-rows-1 md:h-60'>
+                    <form className='flex flex-col rounded space-y-2 h-min'>
                         {/* <label value={title} for='title'>Title:</label> */}
-                        <input onChange={handleTitleChange} type='text' name='title' id='title' placeholder='Enter a post title' />
+                        <input onChange={handleTitleChange} type='text' name='title' id='title' value={title} placeholder='Enter a post title' />
                         {/* <label for='mainImage'>Main Image:</label> */}
                         <input
                             accept='image/*'
@@ -73,11 +73,11 @@ export default function PostInfo() {
                             type='file' name='mainImage'
                             id='mainImage'
                             placeholder='Enter a post title' />
-                        <img className='w-32 h-32 object-cover' src={imagePreview} />
+                        <div className='flex bg-zinc-600 bg-main overflow-hidden h-40 rounded border-theme border-black'>
+                            <img className='flex object-cover w-full h-full' src={imagePreview} />
+                        </div>
                     </form>
-                    <div className='w-full h-full'>
-                        <CardEditorPreview title={title} image={imagePreview} className="flex" />
-                    </div>
+                    <CardEditorPreview title={title} image={imagePreview} />
                 </section>
             </main>
         </>

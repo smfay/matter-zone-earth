@@ -39,14 +39,13 @@ const FeaturedBackground = ({ post }) => {
                 }
             }
             key={post.slug.current}
-            className="overflow-hidden justify-center transition-all flex grow transition-all ease-in-out duration-100">
+            className="justify-center overflow-hidden transition-all flex grow transition-all ease-in-out duration-100">
             <main
-                className="backdrop-blur backdrop-brightness-[0.6] justify-center flex flex-col w-full h-full p-4 md:px-12 lg:px-32 transition-all ease-in-out duration-100">
-                <div className='h-32' />
-                <div className='justify-center items-center md:flex transition-all ease-in-out duration-100'>
+                className="bg-zinc-500 bg-main py-4 h-full border-t-theme border-b-theme border-black backdrop-blur backdrop-brightness-[1.5] justify-center flex flex-col w-full py-0 p-4 md:px-12 lg:px-32 transition-all ease-in-out duration-100">
+                <div className='justify-center drop-shadow-lift-hard items-center md:flex transition-all ease-in-out duration-100'>
                     <FeaturedCard key={post.slug.current} post={post} />
                     {!authUser &&
-                        <section className='place-self-start md:w-1/3 transition-all ease-in-out duration-100'>
+                        <section className='place-self-start mt-4 md:mt-0 md:ml-4 h-full w-full flex flex-col  md:w-1/3 transition-all ease-in-out duration-100 grow'>
                             <SignIn />
                         </section>
                     }
