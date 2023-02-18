@@ -8,11 +8,12 @@ import Footer from './components/Footer';
 import Zones from './screens/Zones';
 import noise from './assets/images/noisetexture.png'
 import CreatePost from './screens/CreatePost';
+import BlockTools from './components/content/editor/BlockTools';
 
 function App() {
 
   return (
-    <div className="bg-zinc-500 bg-fixed overflow-hidden h-full w-full font-inter text-black -z-50"
+    <div className="bg-zinc-500 overflow-hidden h-full w-full font-inter text-black "
     // style={{ backgroundImage: `url(${noise})` }
     // }
     >

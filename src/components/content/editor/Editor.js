@@ -116,9 +116,6 @@ export const Editor = ({ editor }) => {
                 formats={formats}
                 placeholder='Type Something'
             />
-            <div>
-                {text}
-            </div>
         </>
     )
 }

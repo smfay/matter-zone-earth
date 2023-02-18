@@ -89,15 +89,15 @@
   }
 
   .ql-container {
-    @apply text-black w-fit h-full ;
+    @apply text-black flex;
   }
   
   .ql-toolbar {
-    @apply text-white w-full h-full
+    @apply text-white w-fit h-full
   }
 
   .ql-editor {
-    @apply bg-zinc-600 text-black;
+    @apply bg-zinc-600 w-min text-black;
   }
 
   .ql-blank {
@@ -105,7 +105,7 @@
   }
 
   #editor {
-    @apply bg-zinc-300 border-theme border-black text-black rounded mt-4 p-2 text-xl font-inter
+    @apply bg-zinc-300 border-theme border-black text-black rounded p-2 text-xl font-inter h-full flex flex-col
   }
 
   #toolbar {
@@ -129,7 +129,7 @@
   }
 
   .ql-editor .contain {
-    @apply bg-zinc-400 p-4 grid auto-cols-auto gap-4 rounded border-theme border-black border-dashed;
+    @apply bg-zinc-400 p-4 rounded border-theme border-black border-dashed;
   }
 
   .ql-editor .contain-column {
@@ -146,26 +146,28 @@
   }
 
   input::file-selector-button {
-    @apply hover:bg-zinc-400 bg-zinc-500 border-theme border-black m-1 rounded text-xs align-middle;
+    @apply hover:bg-zinc-400 bg-zinc-500 border-theme border-black rounded text-xs align-middle;
   }
 
   .editor-box {
-    @apply bg-red-500 border-theme border-black grid grid-cols-2 auto-rows-auto gap-4
+    @apply 
   }
 
-
-
-
-
-
-
-
-  .block {
-    @apply bg-zinc-500 border-dashed border-theme rounded border-black active:bg-zinc-300 active:drop-shadow-lift-hard;
+  .blockwrapper {
+    @apply w-full flex border-dashed border-theme rounded bg-zinc-600 border-black;
   }
 
   .blocktools button {
-    @apply bg-zinc-500 hover:bg-zinc-300 rounded w-6 h-6;
+    @apply font-semibold text-xs border-theme border-black bg-zinc-400 hover:bg-zinc-300 rounded p-1;
   }
+}
 
+.draggable {
+  bottom: auto !important;
+  right: auto !important;
+}
+
+.dragging {
+  top: auto !important;
+  left: auto !important;
 }

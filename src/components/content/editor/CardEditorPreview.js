@@ -17,11 +17,11 @@ const CardEditorPreview = ({ title, image }) => {
                     backgroundSize: `cover`
                 }
             }
-            className="group text-black overflow-hidden rounded transition-all hover:drop-shadow-lift-down ease-in-out duration-100 hover:drop-shadow-lift-hard h-full border-black w-full border-theme flex grow"
+            className="group text-black overflow-hidden rounded transition-all hover:drop-shadow-lift-hard ease-in-out duration-100 hover:drop-shadow-lift-hard h-full border-black w-full border-theme flex grow"
         >
             <main
-                className="bg-zinc-500 group-hover: bg-zinc-400 backdrop-brightness-[0.3] backdrop-blur-lg w-full h-full justify-left flex items-start transition-all ease-in-out duration-100">
-                <div className="flex align-center border-r-theme border-black justify-center items-center overflow-hidden w-full max-w-1/2 h-full grow-0 bg-black transition-all ease-in-out duration-100">
+                className="bg-zinc-500 group-hover:bg-zinc-300 backdrop-brightness-[0.3] backdrop-blur-lg w-full h-full justify-left flex items-start transition-all ease-in-out duration-100">
+                <div className="flex align-center border-r-theme border-black justify-center items-center overflow-hidden w-full max-w-1/2 h-full grow-0 bg-zinc-600 bg-main transition-all ease-in-out duration-100">
                     <img className="object-cover h-full  flex grow transition-all ease-in-out duration-100" src={image} />
                 </div>
                 <section className="flex flex-col h-full backdrop-blur flex-wrap justify-start p-4 w-full">
