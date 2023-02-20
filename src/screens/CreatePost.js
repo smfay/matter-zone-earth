@@ -22,6 +22,14 @@ export default function CreatePost() {
                     <div className='rounded flex flex-col w-full h-full' >
                         <BlockTools />
                     </div>
+                    {/* <section>
+                        <div id='editor' >
+                            <div id='toolbar' >
+                                <CustomToolbar />
+                            </div>
+                            <Editor />
+                        </div>
+                    </section> */}
                 </section>
             </main>
         </>

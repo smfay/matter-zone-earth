@@ -160,6 +160,10 @@
   .blocktools button {
     @apply font-semibold text-xs border-theme border-black bg-zinc-400 hover:bg-zinc-300 rounded p-1;
   }
+
+  .node {
+    @apply flex flex-col justify-between h-full p-1 bg-zinc-500 border-theme border-black w-full rounded grow hover:bg-zinc-400 hover:drop-shadow-lift-hard transition-all ease-in-out duration-100;
+  }
 }
 
 .draggable {
@@ -171,3 +175,11 @@
   top: auto !important;
   left: auto !important;
 }
+/* 
+.featured-container {
+  perspective: 100px;
+} */
+
+/* .featured {
+  transform: rotateY(5deg) rotateZ(5deg) rotateX(10deg);
+} */

@@ -39,7 +39,11 @@ const AuthDetails = () => {
                 </div>
             </>
 
-            : <p>Signed Out</p>}</div >
+            :
+            <div className='rounded w-full bg-zinc-500 z-50 border-theme border-black p-1 px-2 group-hover:bg-zinc-400 drop-shadow-lift-hard transition-all ease-in-out duration-700' >
+                <p>Signed Out</p>
+            </div>}
+        </div >
     )
 }
 

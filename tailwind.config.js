@@ -7,9 +7,15 @@ module.exports = {
     extend: {
       keyframes: {
         wiggle: {
-          '0%, 100%': { transform: 'rotate(5deg)' },
-          '50%': { transform: 'rotate(-5deg)' },
-        }
+          '0%, 100%': { transform: 'rotate(0.5deg)' },
+          '50%': { transform: 'rotate(-0.5deg)' },
+        },
+        wobble: {
+          '0%, 100%': { transform: 'rotateX(0deg) rotateZ(-3deg) rotateY(-10deg)' },
+          '25%': { transform: 'rotateX(5deg) rotateZ(-6deg) rotateY(-5deg)' },
+          '50%': { transform: 'rotateX(10deg) rotateZ(-3deg) rotateY(0deg)' },
+          '75%': { transform: 'rotateX(5deg) rotateZ(0deg) rotateY(-5deg)' }
+        },
       },
       fontFamily: {
         'noto': ['Noto Serif Display', 'serif'],
@@ -25,8 +31,8 @@ module.exports = {
         'twirl': 'spin 2s ease infinite',
         'twirl-slow': 'spin 3s linear infinite',
         'twirl-slower': 'spin 4s linear infinite',
-        'wiggle': 'wiggle 4s ease-in-out infinite',
-        'wiggle-slow': 'wiggle 6s ease-in-out infinite',
+        'wiggle': `wiggle 0.2s ease-in-out infinite`,
+        'wobble': 'wobble 6s ease-out infinite',
       },
       borderWidth: {
         DEFAULT: '1px',

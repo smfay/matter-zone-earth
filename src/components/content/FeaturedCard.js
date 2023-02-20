@@ -17,7 +17,7 @@ const FeaturedCard = ({ post }) => {
                 }
             }
             key={post.slug.current}
-            className="group rounded w-full h-80 ease-in-out duration-100 border-black border-theme flex grow transition-all ease-in-out duration-100 hover:drop-shadow-lift-hard">
+            className="featured group rounded w-full h-80 ease-in-out duration-100 border-black border-theme flex grow transition-all ease-in-out duration-100 hover:drop-shadow-lift-hard">
             <main
                 className="bg-zinc-500 group-hover:bg-zinc-300 backdrop-brightness-[0.3] backdrop-blur-lg w-full h-full justify-left flex items-start transition-all ease-in-out duration-100">
                 <section className="flex flex-col backdrop-blur flex-wrap justify-start p-4 h-full">

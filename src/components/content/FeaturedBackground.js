@@ -43,7 +43,9 @@ const FeaturedBackground = ({ post }) => {
             <main
                 className="bg-zinc-500 bg-main py-4 h-full border-t-theme border-b-theme border-black backdrop-blur backdrop-brightness-[1.5] justify-center flex flex-col w-full py-0 p-4 md:px-12 lg:px-32 transition-all ease-in-out duration-100">
                 <div className='justify-center drop-shadow-lift-hard items-center md:flex transition-all ease-in-out duration-100'>
-                    <FeaturedCard key={post.slug.current} post={post} />
+                    <div className='featured-container my-12'>
+                        <FeaturedCard key={post.slug.current} post={post} className="" />
+                    </div>
                     {!authUser &&
                         <section className='place-self-start mt-4 md:mt-0 md:ml-4 h-full w-full flex flex-col  md:w-1/3 transition-all ease-in-out duration-100 grow'>
                             <SignIn />
