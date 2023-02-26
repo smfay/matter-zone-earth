@@ -2,22 +2,21 @@ import React, { useState, useRef, useEffect } from 'react'
 import ReactQuill, { Quill } from 'react-quill';
 import 'quill-paste-smart';
 import "react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.bubble.css";
 import parse, { attributesToProps } from 'html-react-parser';
 import CardEditorPreview from './CardEditorPreview';
 import { contains } from '@firebase/util';
+import { useMemo } from 'react';
 
 const InsertContainerButton = () => <span className='flex justify-center border-dashed border-theme rounded border-black text-sm text-black items-center align-middle justify-center content-start p-2 hover:bg-zinc-400 w-fit h-fit place-self-end align-middle'></span>;
 const InsertContainerColumnButton = () => <span className='flex justify-center border-theme rounded border-black text-sm text-black items-center align-middle justify-center content-start p-2 hover:bg-zinc-400 w-fit h-fit place-self-end align-middle'></span>;
-
+console.log(Quill)
 
 const Container = () => <span className='bg-black w-full'></span>;
 
-function insertContainer() {
+function insertHr() {
     const cursorPosition = this.quill.getSelection().index;
-
-    const value = `<div ><br><br></div>`
-    const delta = this.quill.clipboard.convert(value)
-    this.quill.clipboard.dangerouslyPasteHTML(cursorPosition, value)
+    this.quill.insertEmbed(cursorPosition, "hr", "null")
 }
 
 function insertContainerColumn() {
@@ -51,22 +50,43 @@ export const CustomToolbar = () => {
                 <option value="violet"></option>
                 <option value="#d0d1d2"></option>
             </select>
+            <button className='ql-hr text-black text-sm font-semibold' >hr</button>
         </div>
     )
 }
 
-export const Editor = ({ editor }) => {
-    const [text, setText] = useState('')
-
+export const Editor = ({ editor, html, textData, node, selection }) => {
+    const [text, setText] = useState(html)
     const [mountEditor, setMountEditor] = useState(false)
 
+    var Embed = Quill.import('blots/block/embed');
+    class Hr extends Embed {
+        static create(value) {
+            let node = super.create(value);
+            // give it some margin
+            // node.setAttribute('style', "height:0px; margin-top:10px; margin-bottom:10px; color:black;");
+            return node;
+        }
+    }
+
+    Hr.blotName = 'hr'; //now you can use .ql-hr classname in your toolbar
+    Hr.className = 'my-hr';
+    Hr.tagName = 'hr';
+
+    Quill.register({
+        'formats/hr': Hr
+    });
+
     useEffect(() => {
-        setMountEditor(true);
+        if (!mountEditor) {
+            setMountEditor(true);
+        }
     }, [])
 
 
     function handleChange(value) {
         setText(value)
+        textData(value, node)
     }
 
     const formats = [
@@ -84,6 +104,7 @@ export const Editor = ({ editor }) => {
         "bullet",
         "indent",
         "div",
+        "hr",
         "container",
         "section",
         "link",
@@ -91,10 +112,11 @@ export const Editor = ({ editor }) => {
         "color"
     ];
 
-    const modules = {
+
+    const modules = useMemo(() => ({
         clipboard: {
             allowed: {
-                tags: ['a', 'b', 'strong', 'u', 's', 'i', 'p', 'br', 'ul', 'ol', 'li', 'section', 'Container', 'div', 'span'],
+                tags: ['a', 'b', 'strong', 'u', 's', 'i', 'p', 'br', 'ul', 'ol', 'li', 'hr', 'section', 'Container', 'div', 'span'],
                 attributes: ['href', 'rel', 'target', 'class', 'className']
             },
             substituteBlockElements: true,
@@ -102,11 +124,12 @@ export const Editor = ({ editor }) => {
         toolbar: {
             container: '#toolbar',
             handlers: {
-                insertContainer: insertContainer,
-                insertContainerColumn: insertContainerColumn
+                'hr': insertHr
             }
         },
-    };
+
+    }), []);
+
 
     return (
         <>
@@ -114,9 +137,10 @@ export const Editor = ({ editor }) => {
                 onChange={(e) => { handleChange(e) }}
                 modules={modules}
                 formats={formats}
+                theme="snow"
                 placeholder='Type Something'
             />
-            <p>{text}</p>
+            {/* <p>{text}</p> */}
         </>
     )
 }
