@@ -40,7 +40,7 @@ const NavBar = () => {
             <nav className="flex justify-between items-start w-full h-full transition-all ease-in-out duration-700">
                 <span className="md:w-4/5 transition-all ease-in-out duration-700 flex justify-between h-fit items-start w-full">
                     <a href="/home" className="z-50" >
-                        <Logo className="text-black h-10 md:h-16 hover:py-1 transition-all ease-in-out duration-300" />
+                        <Logo className="text-black h-16 md:h-20 hover:py-1 transition-all ease-in-out duration-300" />
                     </a>
                 </span>
                 <div className='flex self-center transition-all h-full ease-in-out duration-700 z-50'>

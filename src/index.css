@@ -113,19 +113,19 @@
   }
 
   #editor h1 {
-    @apply font-inter font-semibold text-5xl
-  }
-
-  #editor h2 {
-    @apply font-inter font-semibold text-4xl
-  }
-
-  #editor h3 {
     @apply font-inter font-semibold text-3xl
   }
 
+  #editor h2 {
+    @apply font-inter font-semibold text-2xl
+  }
+
+  #editor h3 {
+    @apply font-inter font-semibold text-xl
+  }
+
   #editor hr {
-    @apply border-black border-b-2 w-full my-6;
+    @apply border-black border-b-theme w-full my-6;
   }
 
   #editor p {
@@ -157,20 +157,40 @@
     @apply 
   }
 
+  .palettecolor {
+    @apply p-3 border-theme border-black rounded-full transition-all ease-in-out duration-300
+  }
+
   .blockwrapper {
-    @apply w-full flex border-dashed border-theme rounded bg-zinc-600 border-black;
+    @apply w-full flex;
+  }
+
+  .postwrapper {
+    @apply w-full h-full bg-zinc-500 my-4 border-theme border-black rounded p-4
+  }
+
+  .nodetools {
+    @apply  w-full text-right invisible h-8 p-2 items-start justify-between flex justify-end transition-all ease-in-out duration-100 rounded;
+  }
+
+  .blockbutton {
+    @apply border-theme border-black w-8 h-8 bg-zinc-500 rounded hover:bg-zinc-300 hover:drop-shadow-lift-hard transition-all ease-in-out duration-100;
   }
 
   .blocktools button {
     @apply font-semibold text-xs border-theme border-black bg-zinc-400 hover:bg-zinc-300 rounded p-1;
   }
 
+  .blocknodes {
+    @apply flex ;
+  }
+
   .node {
-    @apply flex flex-col justify-between h-full p-1 bg-zinc-500 border-theme border-black w-full rounded grow hover:bg-zinc-400 hover:drop-shadow-lift-hard transition-all ease-in-out duration-100;
+    @apply flex flex-col justify-between bg-zinc-500 border-theme border-black rounded grow hover:bg-zinc-300 hover:drop-shadow-lift-hard transition-all ease-in-out duration-100;
   }
   
   .nodepreview {
-    @apply w-full h-full flex flex-col p-4 text-left;
+    @apply w-full h-full flex flex-col px-4 pb-4 text-left;
   }
 
   .nodepreview hr {
@@ -178,19 +198,19 @@
   }
 
   .nodepreview h1 {
-    @apply font-inter font-semibold text-5xl;
-  }
-
-  .nodepreview h2 {
     @apply font-inter font-semibold text-4xl;
   }
 
-  .nodepreview h3 {
+  .nodepreview h2 {
     @apply font-inter font-semibold text-3xl;
   }
 
+  .nodepreview h3 {
+    @apply font-inter font-semibold text-2xl;
+  }
+
   .nodepreview p {
-    @apply font-inter text-base font-inter;
+    @apply font-inter text-sm font-inter;
   }
 
   .nodepreview ol {

@@ -41,7 +41,7 @@ module.exports = {
         '3': '3px',
         '4': '4px',
         '6': '6px',
-        'theme': '2px',
+        'theme': '1px',
       },
       boxShadow: {
         'inset': 'inset 0px 10px 80px rgba(0,0,0,1)',
