@@ -94,7 +94,7 @@ export default function PostInfo(props) {
 
                     {/* <BlockToolsIcon className='text-zinc-300 bg-zinc-300 h-10 rounded border-theme border-black ' /> */}
                 </header>
-                <section className='grid grid-cols-1 grid-rows-2 gap-4 md:grid-cols-2 md:grid-rows-1 md:h-60'>
+                <section className='grid grid-cols-1 grid-rows-2 gap-4 lg:grid-cols-2 lg:grid-rows-1 lg:h-60'>
                     <form className='flex flex-col rounded space-y-2 h-min'>
                         {/* <label value={title} for='title'>Title:</label> */}
                         <input onChange={handleTitleChange} type='text' name='title' id='title' value={title} placeholder='Enter a post title' />

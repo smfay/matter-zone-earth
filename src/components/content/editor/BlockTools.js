@@ -14,6 +14,7 @@ import TextIcon from '../../../assets/svg/icons/TextIcon';
 import CrossIcon from '../../../assets/svg/icons/CrossIcon';
 import EditIcon from '../../../assets/svg/icons/EditIcon';
 import SaveIcon from '../../../assets/svg/icons/SaveIcon';
+import DragHandleIcon from '../../../assets/svg/icons/DragHandleIcon';
 
 const blockList = [];
 
@@ -33,7 +34,7 @@ const resizeFile = (file) =>
         );
     });
 
-const BlockTools = (updatePostPreview) => {
+const BlockTools = (props) => {
     const [blocks, updateBlocks] = useState(blockList)
 
     let editingNode = null;
@@ -50,6 +51,7 @@ const BlockTools = (updatePostPreview) => {
         newBlocks.map(block => block.nodes.map(node => node.id == editingNode ? node.editing = true : node.editing = false))
         console.log("new blocks", newBlocks)
         updateBlocks(newBlocks);
+        props.updatePreview(newBlocks)
     }
 
     function addBlock() {
@@ -67,7 +69,7 @@ const BlockTools = (updatePostPreview) => {
         const items = [...blocks];
 
         function blockMoveDown(oldIndex) {
-            const newIndex = oldIndex + 1
+            const newIndex = index + 1
             const [reorderedItem] = items.splice(oldIndex, 1);
             items.splice(newIndex, 0, reorderedItem);
             updateBlocks(items)
@@ -85,7 +87,13 @@ const BlockTools = (updatePostPreview) => {
 
         function addNode(blockNodes) {
             const myId = uuid();
-            const newNode = { id: `${myId}`, type: 'none', text: "", editing: false, image: "", imageSource: "" }
+            const defaultImageConfig = {
+                xFocus: 50,
+                yFocus: 50,
+                inContainer: true,
+                manualWidth: 0
+            };
+            const newNode = { id: `${myId}`, type: 'none', text: "", editing: false, image: "", imageSource: "", imageConfig: defaultImageConfig }
             updateBlockTree(id, [...blockNodes, newNode])
 
             console.log("newNode id", newNode.id)
@@ -115,6 +123,10 @@ const BlockTools = (updatePostPreview) => {
             updateBlockTree(id, items)
         }
 
+        function configureImage() {
+
+        }
+
         const handleImageChange = async (e, nodeIndex) => {
             const items = [...blockNodes];
             const file = e.target.files[0];
@@ -138,10 +150,34 @@ const BlockTools = (updatePostPreview) => {
             updateBlockTree(id, [...items])
         }
 
-        const Node = ({ id, index, type, text, image, imageSource, editing }) => {
+        const Node = ({ id, index, type, text, image, imageSource, imageConfig, editing }) => {
             const nodeType = type
             let nodeHtml = text
             let nodeImage = imageSource
+
+            function DeleteNodeButton() {
+                return (
+                    <button onClick={() => removeNode(blockNodes, index)} className='h-6 w-6 aspect-square bg-zinc-300 border-theme border-black group-hover:p-1 group-hover:rotate-90 opacity-0 group-hover:opacity-100 hover:bg-red-600 p-3 rounded-full transition-all ease-in-out duration-200'><CrossIcon /></button>
+                )
+            }
+
+            function EditImageButton() {
+                return (
+                    <button onClick={() => removeNode(blockNodes, index)} className='h-6 w-6 aspect-square bg-zinc-300 border-theme border-black group-hover:p-1 group-hover:rotate-90 opacity-0 group-hover:opacity-100 hover:bg-red-600 p-3 rounded-full transition-all ease-in-out duration-200'><CrossIcon /></button>
+                )
+            }
+
+            function UpdateTextButton() {
+                return (
+                    <button onClick={() => setNodeType(index, "text", id, nodeHtml, false)} className='h-6 w-6 aspect-square border-theme border-black font-bold text-sm group-hover:p-0 opacity-0 align-top group-hover:opacity-100 hover:bg-blue-600 p-3 rounded-full transition-all ease-in-out duration-200'>-></button>
+                )
+            }
+
+            function UpdateImageButton() {
+                return (
+                    <button onClick={() => setNodeType(index, "image", id, nodeHtml, false, image, imageSource)} className='h-6 w-6 aspect-square border-theme border-black font-bold text-sm group-hover:p-0 opacity-0 align-top group-hover:opacity-100 hover:bg-blue-600 p-3 rounded-full transition-all ease-in-out duration-200'>-></button>
+                )
+            }
 
             function updateText(newText, nodeIndex) {
                 console.log(newText)
@@ -150,29 +186,29 @@ const BlockTools = (updatePostPreview) => {
 
             if (type == 'none') {
                 return (
-                    <div className='group node flex flex-col justify-between h-full p-1 w-full rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100'>
+                    <div className='group node'>
                         <nav className='nodetools group-hover:visible'>
-                            <button onClick={() => removeNode(blockNodes, index)} className='h-6 w-6 bg-zinc-500 group-hover:p-1 group-hover:rotate-90 opacity-0 group-hover:opacity-100 hover:bg-red-600 p-3 rounded-full transition-all ease-in-out duration-200'><CrossIcon /></button>
+                            <p className='nodetypelabel' >None</p>
+                            <DeleteNodeButton />
                         </nav>
-                        <div className='flex space-x-2'>
+                        <div className='flex space-x-2 mt-6'>
                             <button onClick={() => setNodeType(index, "image", id, nodeHtml, editing, image, imageSource)} className='h-6 w-6 bg-zinc-500 hover:bg-zinc-300 rounded border-theme border-black drop-shadow-lift-hard' >
                                 <ImageIcon />
                             </button>
                             <button onClick={() => setNodeType(index, "text", id, nodeHtml, editing, image, imageSource)} className='h-6 w-6 bg-zinc-500 hover:bg-zinc-300 rounded border-theme border-black drop-shadow-lift-hard'>
                                 <TextIcon />
                             </button>
-                            <p className='line-clamp-1 w-min' >{type}</p>
                         </div>
                     </div>
                 )
             } else if (type == 'image' & imageSource == "") {
                 return (
-                    <div className='group node flex flex-col justify-between h-full p-1 w-full rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100'>
+                    <div className='group node'>
                         <nav className='nodetools group-hover:visible'>
-                            <p>Image</p>
-                            <button onClick={() => removeNode(blockNodes, index)} className='h-6 w-6 bg-zinc-500 group-hover:p-1 group-hover:rotate-90 opacity-0 group-hover:opacity-100 hover:bg-red-600 p-3 rounded-full transition-all ease-in-out duration-200'><CrossIcon /></button>
+                            <p className='nodetypelabel' >Image</p>
+                            <DeleteNodeButton />
                         </nav>
-                        <form className='w-full'>
+                        <form className='w-full mt-6'>
                             <input
                                 className='w-full'
                                 type="file"
@@ -182,42 +218,85 @@ const BlockTools = (updatePostPreview) => {
                         </form>
                     </div>
                 )
-            } else if (type == 'image' & imageSource != "") {
+            } else if (type == 'image' & imageSource != "" & editing == false) {
                 return (
-                    <div className='group node flex flex-col justify-between p-1 rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100'>
-                        <nav className='nodetools group-hover:visible'>
-                            <p>Image</p>
-                            <button onClick={() => removeNode(blockNodes, index)} className='h-6 w-6 bg-zinc-500 group-hover:p-1 group-hover:rotate-90 opacity-0 group-hover:opacity-100 hover:bg-red-600 p-3 rounded-full transition-all ease-in-out duration-200'><CrossIcon /></button>
+                    <div className='group node p-0'>
+                        <nav className='nodetools group-hover:visible z-10'>
+                            <p className='nodetypelabel' >Image</p>
+                            <DeleteNodeButton />
                         </nav>
-                        <div className='flex overflow-hidden p-2 grow' >
-                            <img className='object-cover w-full grow flex border-theme border-black rounded' src={imageSource} />
+                        <div className='overflow-hidden h-64 grow rounded relative justify-center items-center'>
+                            <div className='absolute w-full h-full items-center pointer-events-none'>
+                                <div className='flex items-center justify-center w-full h-full tool p-4'>
+                                    <button onClick={() => setNodeType(index, "image", id, nodeHtml, true, image, imageSource)} className='toolbutton rounded-full p-3 aspect-square text-zinc-300 invisible group-hover:visible hover:bg-zinc-300 hover:text-black group-hover:pointer-events-auto z-50'>edit</button>
+                                </div>
+                            </div>
+                            <img className='object-cover w-full h-full group-hover:brightness-[0.2]' src={imageSource} />
+                        </div>
+                    </div>
+                )
+            } else if (type == 'image' & imageSource != "" & editing == true) {
+                return (
+                    <div className='group node p-0'>
+                        <nav className='nodetools group-hover:visible z-10'>
+                            <p className='nodetypelabel' >Image</p>
+                            <UpdateImageButton />
+                        </nav>
+                        <div className='overflow-hidden h-64 grow rounded relative justify-center items-center'>
+                            <div className='absolute w-full h-full items-center'>
+                                <div className='flex items-center justify-center w-full h-full tool p-4'>
+                                    <div className='z-10 text-zinc-300 w-fit gap-4 p-4 flex flex-col items-left'>
+                                        <div className='flex gap-2 justify-between toolbutton'>
+                                            <label for="showTitle">In Container</label>
+                                            <input type="checkbox" id="showTitle" name="showTitle" />
+                                        </div>
+                                        {/* <hr></hr> */}
+                                        <span className='flex items-center justify-between gap-2'>
+                                            <label className='' for="x">X Focus</label>
+                                            <input className='range' type="range" id="x" name="x" min="0" max="100" />
+                                        </span>
+                                        <span className='flex items-center justify-between gap-2'>
+                                            <label className='' for="y">Y Focus</label>
+                                            <input className='range' type="range" id="y" name="y" min="0" max="100" />
+                                        </span>
+                                        <span className='flex items-center justify-between gap-2'>
+                                            <label className='' for="y">Width </label>
+                                            <input className='range' type="range" id="y" name="y" min="0" max="100" />
+                                        </span>
+                                        <span className='flex items-center justify-end gap-2'>
+                                            <button>Reset</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <img className='object-cover w-full h-full brightness-[0.2] ponter-events-auto' src={imageSource} />
                         </div>
                     </div>
                 )
             } else if (type == 'text' & editing == false) {
                 if (text == '<p><br></p>' | text == '') {
                     return (
-                        <div className='group node flex flex-col justify-between h-full p-1 w-full rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100'>
+                        <div className='group node'>
                             <section className='group' >
                                 <nav className='nodetools group-hover:visible'>
-                                    <p>Text</p>
-                                    <button onClick={() => removeNode(blockNodes, index)} className='h-6 w-6 group-hover:p-1 group-hover:rotate-90 opacity-0 group-hover:opacity-100 hover:bg-red-600 p-3 rounded-full transition-all ease-in-out duration-200'><CrossIcon /></button>
+                                    <p className='nodetypelabel' >Text</p>
+                                    <DeleteNodeButton />
                                 </nav>
-                                <div onClick={() => setNodeType(index, "text", id, nodeHtml, true)} className='w-full bg-zinc-500 h-full rounded border-theme border-dashed border-black text-center flex justify-center items-center'>
-                                    <button className='' >Click to edit</button>
+                                <div onClick={() => setNodeType(index, "text", id, nodeHtml, true)} className='w-full bg-zinc-500 h-full rounded border-theme border-dashed border-black text-center flex p-20 justify-center items-center'>
+                                    <button className='h-full w-full' className='' >Click to edit</button>
                                 </div>
                             </section>
                         </div>
                     )
                 } else {
                     return (
-                        <div className='group node flex flex-col justify-between h-full p-1 w-full rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100'>
+                        <div className='group node'>
                             <section className='group' >
                                 <nav className='nodetools group-hover:visible'>
-                                    <p>Text</p>
-                                    <button onClick={() => removeNode(blockNodes, index)} className='h-6 w-6 bg-zinc-500 group-hover:p-1 group-hover:rotate-90 opacity-0 group-hover:opacity-100 hover:bg-red-600 p-3 rounded-full transition-all ease-in-out duration-200'><CrossIcon /></button>
+                                    <p className='nodetypelabel' >Text</p>
+                                    <DeleteNodeButton />
                                 </nav>
-                                <button onClick={() => setNodeType(index, "text", id, nodeHtml, true)} className='nodepreview h-full' >
+                                <button onClick={() => setNodeType(index, "text", id, nodeHtml, true)} className='nodepreview max-h-60 overflow-y-auto' >
                                     {parse(nodeHtml)}
                                 </button>
                             </section>
@@ -226,13 +305,13 @@ const BlockTools = (updatePostPreview) => {
                 }
             } else if (type == 'text' & editing == true) {
                 return (
-                    <div className='group node flex flex-col justify-between h-full p-1 w-full rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100'>
+                    <div className='group node w-full'>
                         <section className='group' >
                             <nav className='nodetools group-hover:visible'>
-                                <p>Text</p>
-                                <button onClick={() => setNodeType(index, "text", id, nodeHtml, false)} className='h-6 w-6 font-bold text-sm bg-zinc-500 group-hover:p-0 opacity-0 align-top group-hover:opacity-100 hover:bg-blue-600 p-3 rounded-full transition-all ease-in-out duration-200'>-></button>
+                                <p className='nodetypelabel' >Text</p>
+                                <UpdateTextButton />
                             </nav>
-                            <section>
+                            <section className='mt-4'>
                                 <div id='editor' >
                                     <div id='toolbar' >
                                         <CustomToolbar />
@@ -253,17 +332,16 @@ const BlockTools = (updatePostPreview) => {
                     <DragDropContext onDragEnd={handleOnDragEnd}>
                         <Droppable droppableId='nodes-droppable' direction="horizontal">
                             {(provided) => (
-                                <ul className='blocknodes space-x-2 w-full flex' {...provided.droppableProps} ref={provided.innerRef}>
+                                <ul className='blocknodes space-x-2 w-full flex bg-zinc-500 overflow-x-auto rounded z-20 transition-none' {...provided.droppableProps} ref={provided.innerRef}>
                                     {blockNodes.map(({ id, text, type, editing, image, imageSource }, index) => {
                                         return (
                                             <Draggable key={id + index} draggableId={id + index} index={index} className=''>
                                                 {(provided) => (
                                                     <li
                                                         key={index + id}
-                                                        className={`draggable flex
-                                                        ${(type == "text" | [...blockNodes].length == 1) ? 'w-full' : ''} 
-                                                        ${(type == "image" && [...blockNodes].length == 1) ? 'max-h-96' : ''}
-                                                        ${(type == "image" && [...blockNodes].length == 2) ? 'w-full max-w-fit' : ''}
+                                                        className={`draggable flex w-full z-20 min-w-[6em] 
+                                                        ${type == "image" && editing == false && blockNodes.length != 0 ? 'w-[40%] grow' : ''}
+                                                        ${type == "image" && editing == true ? 'w-full min-w-[16em]' : ''}
                                                         `}
                                                         {...provided.draggableProps}
                                                         {...provided.dragHandleProps}
@@ -279,15 +357,18 @@ const BlockTools = (updatePostPreview) => {
                             )}
                         </Droppable>
                     </DragDropContext>
+                    <nav className='relative h-full rounded'>
+                        <nav className={`w-12 h-40 ${blockNodes.length == 0 ? 'h-full grow' : 'h-40'}`}>
+
+                            <div className={`hover:drop-shadow-none relative flex flex-col w-full items-center group-hover:w-full rounded-r p-2 gap-2 justify-between border-black border-r-theme border-t-theme border-b-theme text-xl font-semibold text-center transition-all ease-in-out duration-100 ${blockNodes.length == 0 ? 'border-none h-full w-full' : 'h-fit w-full over:bg-zinc-400 drop-shadow-lift-hard bg-zinc-500'}`}>
+                                <button className='blockbutton' onClick={() => blockMoveUp(index)} >↑</button>
+                                <button className='blockbutton' onClick={() => blockMoveDown(index)} >↓</button>
+                                <button className='blockbutton hover:bg-blue-600' onClick={() => addNode(blockNodes)}  >+</button>
+                                <button className='blockbutton hover:bg-red-600 p-1' onClick={() => addNode(blockNodes)}  ><CrossIcon /></button>
+                            </div>
+                        </nav>
+                    </nav>
                 </section>
-                <nav className='flex h-full rounded'>
-                    <div className='flex bg-zinc-500 flex-col h-full hover:drop-shadow-lift-hard  p-1 border-theme border-black rounded gap-2 justify-between ml-2 text-xl font-semibold text-center'>
-                        <button className='blockbutton' onClick={() => blockMoveUp(index)} >↑</button>
-                        <button className='blockbutton' onClick={() => blockMoveDown(index)} >↓</button>
-                        <button className='blockbutton' onClick={() => addNode(blockNodes)}  >+</button>
-                        <button className='blockbutton bg-red-600 rounded-full p-1' onClick={() => addNode(blockNodes)}  ><CrossIcon /></button>
-                    </div>
-                </nav>
             </>
         )
     }
@@ -300,7 +381,7 @@ const BlockTools = (updatePostPreview) => {
                         return (
                             <div key={id} >
                                 {/* <span className='text-xs'>{id}</span> */}
-                                <li className='flex bg-zinc-500 rounded p-2 border-theme border-black border-dashed bg-zinc-600' >
+                                <li className={`flex rounded border-black ${nodes.length == 0 ? 'border-theme border-dashed p-2' : ''}`} >
                                     <Block id={id} index={index} blockNodes={[...nodes]} className="" />
                                 </li>
                             </div>

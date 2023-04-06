@@ -4,24 +4,26 @@
 
 @layer base {
   ::-webkit-scrollbar {
-    width: 15px;
+    @apply p-12 m-12;
+    background: #71717a;
+    padding: 2px;
+    width: 16px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #27272a;
-    border-radius: 10px;
+    background: #71717a;
+    border-radius: 4px;
     border-width: 1px;
-    border-style: none;
-    border-color: white;
+    border-style: solid;
+    border-color: black;
   }
 
   ::-webkit-scrollbar-track {
-    background: #18181b;
-    border-color: rgb(24 24 27);
-    border-width: 1px;
+    background: #71717a;
+    border-radius: 4px;
+    border-width: 0px;
     border-style: solid;
-    border-top: 0;
-    border-bottom: 0;
+    border-color: black;
   }
 
   .post-preview h1 {
@@ -101,11 +103,11 @@
   }
 
   .ql-blank {
-    @apply bg-zinc-600 text-black text-xl;
+    @apply bg-zinc-600 text-black text-xl p-0;
   }
 
   #editor {
-    @apply text-black rounded p-2 text-xl font-inter h-full flex flex-col
+    @apply text-black pt-2 rounded text-xl font-inter h-full flex flex-col
   }
 
   #toolbar {
@@ -129,7 +131,7 @@
   }
 
   #editor p {
-    @apply font-inter text-base font-inter;
+    @apply font-inter text-sm font-inter;
   }
 
   .ql-editor .contain {
@@ -158,7 +160,7 @@
   }
 
   .palettecolor {
-    @apply p-3 border-theme border-black rounded-full transition-all ease-in-out duration-300
+    @apply w-6 h-6 border-theme border-black rounded-full transition-all ease-in-out duration-300
   }
 
   .blockwrapper {
@@ -170,11 +172,11 @@
   }
 
   .nodetools {
-    @apply  w-full text-right invisible h-8 p-2 items-start justify-between flex justify-end transition-all ease-in-out duration-100 rounded;
+    @apply overflow-hidden top-0 left-0 border-b-theme border-black gap-4 absolute text-right invisible bg-zinc-300 w-full h-0 group-hover:h-full group-hover:h-8 group-hover:p-4 items-center justify-between flex transition-all ease-in-out duration-100;
   }
 
   .blockbutton {
-    @apply border-theme border-black w-8 h-8 bg-zinc-500 rounded hover:bg-zinc-300 hover:drop-shadow-lift-hard transition-all ease-in-out duration-100;
+    @apply w-6 h-6 text-sm bg-zinc-500 rounded-full hover:bg-zinc-300 transition-all ease-in-out duration-100;
   }
 
   .blocktools button {
@@ -182,31 +184,31 @@
   }
 
   .blocknodes {
-    @apply flex ;
+    @apply flex;
   }
 
   .node {
-    @apply flex flex-col justify-between bg-zinc-500 border-theme border-black rounded grow hover:bg-zinc-300 hover:drop-shadow-lift-hard transition-all ease-in-out duration-100;
+    @apply overflow-hidden p-4 justify-start bg-zinc-500 flex flex-col border-theme border-black hover:border-black rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100 flex flex-col w-full rounded grow hover:drop-shadow-lift-hard transition-all ease-in-out duration-100;
   }
   
   .nodepreview {
-    @apply w-full h-full flex flex-col px-4 pb-4 text-left;
+    @apply w-full h-full flex flex-col text-left line-clamp-2;
   }
 
   .nodepreview hr {
-    @apply border-black border-b-2 w-full my-6;
+    @apply border-black border-b-theme w-full my-6;
   }
 
   .nodepreview h1 {
-    @apply font-inter font-semibold text-4xl;
+    @apply font-inter font-semibold text-2xl;
   }
 
   .nodepreview h2 {
-    @apply font-inter font-semibold text-3xl;
+    @apply font-inter font-semibold text-xl;
   }
 
   .nodepreview h3 {
-    @apply font-inter font-semibold text-2xl;
+    @apply font-inter font-semibold text-base;
   }
 
   .nodepreview p {
@@ -214,12 +216,131 @@
   }
 
   .nodepreview ol {
-    @apply font-inter text-base font-inter;
+    @apply font-inter text-sm font-inter;
   }
 
  .nodepreview ul {
-    @apply font-inter text-base font-inter list-disc list-inside indent-8;
+    @apply font-inter text-sm font-inter list-disc list-inside indent-8;
   }
+}
+
+.treepreview {
+  @apply w-full h-full flex text-left;
+}
+
+.treetext {
+  @apply w-full
+}
+
+.treeimage {
+  @apply w-full
+}
+
+.treepreview hr {
+  @apply border-black border-b-theme w-full my-6;
+}
+
+.treepreview h1 {
+  @apply font-inter font-semibold text-5xl;
+}
+
+.treepreview h2 {
+  @apply font-inter font-semibold text-3xl;
+}
+
+.treepreview h3 {
+  @apply font-inter font-semibold text-xl;
+}
+
+.treepreview p {
+  @apply font-inter text-sm font-inter;
+}
+
+.treepreview ol {
+  @apply font-inter text-base font-inter;
+}
+
+.treepreview ul {
+  @apply font-inter text-base font-inter list-disc list-inside indent-8;
+}
+
+.nodetypelabel {
+  @apply text-xs uppercase font-semibold w-0
+}
+
+.tool label {
+  @apply text-xs uppercase font-semibold
+}
+
+.tool button {
+  @apply text-xs uppercase font-semibold
+}
+
+.toolitem {
+  @apply text-xs uppercase font-semibold
+}
+
+.toolbutton {
+  @apply rounded;
+}
+
+* {
+  @apply transition-all ease-in-out duration-100
+}
+
+.range {
+  @apply rounded;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: #d4d4d8;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.range::-webkit-slider-thumb {
+  @apply rounded-full;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  background: #d4d4d8;
+  cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+  @apply rounded-full;
+  width: 13px;
+  height: 13px;
+  background: #d4d4d8;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  @apply font-inter rounded-full border-theme aspect-square;
+  width: 16px;
+  height: 16px;
+  border-color: currentcolor;
+  appearance: none;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+ @apply rounded-full aspect-square; 
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em currentcolor;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
 }
 
 .draggable {

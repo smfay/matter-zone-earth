@@ -36,15 +36,24 @@ const NavBar = () => {
     return (
         <div
             // style={{ backgroundImage: `url(${noise})` }}
-            className={`top-0 h-fit items-start px-4 md:px-12 lg:px-32 text-zinc-300 z-40 w-full max-w-[100vm] transition-all ease-in-out duration-700`}>
-            <nav className="flex justify-between items-start w-full h-full transition-all ease-in-out duration-700">
-                <span className="md:w-4/5 transition-all ease-in-out duration-700 flex justify-between h-fit items-start w-full">
+            className={`top-0 h-fit items-center py-4 px-4 text-zinc-300 z-40 w-full max-w-[100vm] transition-all ease-in-out duration-700`}>
+            <nav className="flex justify-between items-center w-full h-full transition-all ease-in-out duration-700">
+                <span className="transition-all ease-in-out duration-700 flex justify-between h-full items-start">
                     <a href="/home" className="z-50" >
-                        <Logo className="text-black h-16 md:h-20 hover:py-1 transition-all ease-in-out duration-300" />
+                        <Logo className="text-black h-full hover:text-zinc-300 transition-all ease-in-out duration-100" />
                     </a>
                 </span>
-                <div className='flex self-center transition-all h-full ease-in-out duration-700 z-50'>
-                    <AuthDetails className='self-center flex transition-all ease-in-out duration-700 h-full' />
+                <span className='toolitem flex grow text-black items-center h-full w-full p-4 mx-4 justify-between '>
+                    <a>Zones</a>
+                    <a>Economy</a>
+                    <a>Editor</a>
+                    <a>Account</a>
+                    <a>About</a>
+                    <a>Hall of fame</a>
+                    <a>Graveyard</a>
+                </span>
+                <div className='flex transition-all h-min ease-in-out duration-700 z-50'>
+                    <AuthDetails className='transition-all ease-in-out duration-700 w-full' />
                 </div>
             </nav>
 
